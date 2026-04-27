@@ -1,0 +1,37 @@
+\ProvidesPackage{sty/docEnv/envAutoEnv}
+
+
+\makeatletter
+
+% Shared name printer
+\newcommand{\mthm@printname}[1]{%
+  \if\relax\detokenize{#1}\relax
+  \else\ (\textit{#1})%
+  \fi
+}
+
+% Renamed macro
+\newcommand{\MakeMyEnv}[3]{%
+  % #1 = counter name (lem)
+  % #2 = printed title (Lemma)
+  % #3 = environment name (mlemma)
+
+  \newtheorem{#1}{#2}
+
+  \expandafter\NewDocumentEnvironment\csname #3\endcsname{O{} O{} o}
+  {%
+    \par\noindent
+    \IfValueTF{##1}
+      {\def\mthm@number{##1}}
+      {\refstepcounter{#1}\edef\mthm@number{\csname the#1\endcsname}}%
+
+    \IfNoValueTF{##3}
+      {\label{#1:\mthm@number}}
+      {\label{##3}}%
+
+    {\textbf{#2} \mthm@number\mthm@printname{##2}.}\par\noindent
+  }
+  {\par}
+}
+
+\makeatother

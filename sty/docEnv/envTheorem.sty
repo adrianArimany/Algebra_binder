@@ -1,0 +1,60 @@
+\ProvidesPackage{sty/docEnv/envTheorem}
+
+
+\newtheorem{thm}{Theorem}
+
+\newcommand{\mthm@printname}[1]{%
+  \if\relax\detokenize{#1}\relax
+  \else\ (\textit{#1})%
+  \fi
+}
+\NewDocumentEnvironment{mtheorem}{O{} O{} o}
+{%
+  % #1 = manual number (optional)
+  % #2 = theorem name (optional, shown in parentheses)
+  % #3 = label (optional)
+
+  \par\noindent
+  \IfValueTF{#1}
+    {%
+      % Manual number provided → do NOT step counter
+      \def\mthm@number{#1}%
+    }
+    {%
+      % No manual number → use automatic counter
+      \refstepcounter{thm}%
+      \def\mthm@number{\thethm}%
+    }%
+
+  % Label handling
+  \IfNoValueTF{#3}
+    {\label{thm:\mthm@number}}
+    {\label{#3}}%
+
+  {\textbf{Theorem} \mthm@number\mthm@printname{#2}.}\par\noindent
+}
+{\par}
+
+
+% \begin{mtheorem}[A.1][Pythagoras][thm:pyth]
+% Statement here.
+% \end{mtheorem}
+
+
+% \newtheorem{thm}{Teorema}
+% \newcommand{\mthm@printname}[1]{\ifdefstrequal{#1}{}{}{ (\textit{#1})}}
+
+% \NewDocumentEnvironment{mtheorem}{O{} o}
+%   {%
+%     \refstepcounter{thm}%
+%     \IfNoValueTF{#2}{\label{thm:\thethm}}{\label{#2}}%
+%     \par\noindent{\textbf{Theorem} \thethm\mthm@printname{#1}.}\par\noindent
+%   }
+%   {\par}
+
+
+% \begin{mtheorem}[Fundamental Theorem of Calculus][thm:ftc]
+% If $f$ is continuous on $[a, b] \dots$
+% \end{mtheorem}
+
+% As seen in Theorem \ref{thm:ftc}...

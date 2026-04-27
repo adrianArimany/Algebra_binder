@@ -1,0 +1,31 @@
+\ProvidesPackage{sty/docEnv/envNotation}
+
+
+\newcounter{mnotation}
+
+% \mnotation{name}[label]
+%   name  = mandatory display name set by the user
+%   label = optional custom label (defaults to not:<n>)
+\NewDocumentEnvironment{mnotation}{m o}
+  {%
+    \refstepcounter{mnotation}%
+    \def\mnotation@name{#1}%
+    \IfNoValueTF{#2}{\edef\mnotation@label{not:\themnotation}}{\edef\mnotation@label{#2}}%
+    \label{\mnotation@label}%
+    % store mapping label -> name for \mnoteref
+    \expandafter\gdef\csname mnotation@name@\mnotation@label\endcsname{\mnotation@name}%
+    % Heading: "Notación <n> <name>"
+    \par\noindent\textbf{Notación \themnotation\ \mnotation@name.}\par\noindent
+  }
+  {\par}
+
+% Text reference helper:
+% \mnoteref{<label>} -> "Notación—<name>"
+\newcommand{\mnoteref}[1]{%
+  \ifdefcsname mnotation@name@#1\endcsname
+    {Notación—\csname mnotation@name@#1\endcsname}%
+    {Notación—\textbf{??}}%
+}
+
+\makeatletter
+\makeatother

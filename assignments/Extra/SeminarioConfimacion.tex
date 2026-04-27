@@ -1,0 +1,112 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Guia de Seminario Algebra Moderna},
+  duedate={\today},
+  toc=false,
+  toctitle={},
+  exlist=false
+]
+
+\begin{quote}
+    El siguente documento fue traducido por \textcite{claude2025}, y revisado por Adrian Arimany. El documento original fue hecho en Ingles, pero traducido al español por conveniencia al lector.
+\end{quote}
+
+\section*{Tema de Seminario}
+Introducción a los Grupos de Lie Matriciales con énfasis en la construcción del Toro y el mapa exponencial. Donde el material de referencia primario es \textcite{hall2015lie}. Además, este seminario tiene como intención secundaria conectar con un proyecto en física mecánica sobre un péndulo doble (un sistema caótico) que tiene al Toro como espacio de configuración, de ahí que se le preste particular atención al Toro.
+
+\section*{Limitaciones impuestas a los Grupos de Lie}
+
+Como era de esperarse, la Teoría de Lie es una disciplina académica de posgrado para la cual, en mi nivel actual de pregrado, no cuento con todos los prerrequisitos necesarios para abordarla de manera formal y rigurosa. Por ello, establezco algunas restricciones para mantener este seminario lo más accesible posible.
+\begin{enumerate}
+    \item Este seminario se enfocará únicamente en Grupos de Lie Matriciales, evitando por completo los Grupos de Lie en su generalidad.
+    \item Al estudiar el Álgebra de Lie, todos los resultados y ejemplos se restringirán al uso del Toro $(\mathfrak{t})$.
+    \item No se cambiará la topología usual al hablar de continuidad. Dado que nos limitamos a Grupos de Lie Matriciales, todos los objetos son subconjuntos de $M_n(\mathbb{C})$, y como se sabe $\mathbb{C}^{n^2} \cong \mathbb{R}^{2n^2}$, lo que implica que la topología es la topología usual estudiada en análisis real, solo que al trabajar en dimensiones superiores se induce la norma de Frobenius, que para efectos prácticos es la misma norma que se estudia en análisis real multivariable.
+    \item Otro detalle a destacar de la restricción $(3)$ es que, dado que los conjuntos compactos desempeñan un papel en los Grupos de Lie y estamos utilizando la topología usual sobre $\mathbb{R}$, podemos emplear la equivalencia de Heine-Borel.
+    \item Otro detalle sobre la restricción $(3)$ es que los conjuntos conexos también juegan un papel en los Grupos de Lie. Sin embargo, la mayor parte de la teoría se fundamenta en la conexión por caminos más que en la conexión topológica. En $\mathbb{T}^n$ la conexión por caminos es equivalente a la conexión topológica; no obstante, es muy probable que se utilice la conexión por caminos por ser la más frecuente en la teoría de Lie.
+    \item Como cabe esperar, el campo complejo tiene presencia en la Teoría de Lie, pero para este seminario el análisis complejo deberá desempeñar un papel muy poco significativo, y mis compañeros podrán comprender algunos resultados a partir de lo que aprenderán en la última parte del curso de Ecuaciones Diferenciales Parciales.
+    \item Por último, asumiré que mis compañeros comprenden Álgebra Lineal (segundo semestre) y Análisis Real (primer semestre), y cualquier resultado de mayor complejidad será reenfatizado para garantizar que todo sea comprensible.
+\end{enumerate}
+
+
+
+
+\section*{Temas Generales:}
+
+A continuación se presenta un resumen de las secciones del libro que se abordarán. A medida que avance el seminario, es probable que no todas las secciones se cubran con pleno detalle, o que se incorpore material adicional proveniente de los ejercicios con el fin de lograr un seminario completo sobre el Toro.
+
+\newpage
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{@{} p{0.55cm} p{7.2cm} R @{}}
+\toprule
+\textbf{\S} & \textbf{Tema} & \textbf{Referencia en Hall} \\
+\midrule
+ 
+1.1 & Definición de grupo de Lie matricial:
+      subgrupos cerrados de $GL(n,\mathbb{C})$
+      & Hall \S1.1, pp.\,3--5 \\[4pt]
+ 
+1.2 & Ejemplos clave: $GL(n,\mathbb{R})$, $SL(n,\mathbb{R})$,
+      $O(n)$, $U(n)$, $SU(n)$
+      & Hall \S1.2, pp.\,5--16 \\[4pt]
+ 
+1.3 & Propiedades topológicas: compacidad y conexidad
+      & Hall \S1.3, pp.\,16--21 \\[4pt]
+ 
+1.4 & Homomorfismos de grupos de Lie
+      & Hall \S1.4, pp.\,21--25 \\[6pt]
+ 
+\midrule
+ 
+2.1 & La exponencial matricial:
+      $e^{X}=\sum_{k=0}^{\infty}X^{k}/k!$
+      & Hall \S2.1, pp.\,31--33 \\[4pt]
+ 
+2.2 & Cálculo de la exponencial
+      & Hall \S2.2, pp.\,34--35 \\[4pt]
+ 
+2.3 & El logaritmo matricial
+      & Hall \S2.3, pp.\,36--39 \\[4pt]
+ 
+2.4 & Propiedades adicionales de la exponencial
+      & Hall \S2.4, pp.\,40--42 \\[6pt]
+ 
+\midrule
+ 
+3.1 & Definiciones y primeros ejemplos de álgebras de Lie
+      & Hall \S3.1, pp.\,49--52 \\[4pt]
+ 
+3.7 & El mapa exponencial (Def.\,3.40, Thm.\,3.42, Lem.\,3.43);
+      sobreyectividad para $G$ conexo y conmutativo (ejercicio)
+      & Hall \S3.7, pp.\,67--70 \\[6pt]
+ 
+\midrule
+
+11.1 & Toros; $\mathbb{T}^{n}$ como grupo de Lie matricial
+       & Hall \S11.1, pp.\,310--313 \\[4pt]
+ 
+11.2 & Toros maximales y el grupo de Weyl
+       & Hall \S11.2, pp.\,314--316 \\[6pt]
+ 
+\midrule
+ 
+--- & \textbf{Síntesis:}
+      definir $\mathfrak{t}^{n}=i\mathbb{R}^{n}$;
+      restringir $\exp$ a $\mathfrak{t}^{n}\to\mathbb{T}^{n}$;
+      calcular el núcleo $2\pi i\,\mathbb{Z}^{n}$;
+      obtener $\mathbb{T}^{n}\cong\mathbb{R}^{n}/\mathbb{Z}^{n}$
+      mediante el primer teorema de isomorfismo
+      & Def.\,3.40; ejercicio tras \S3.7;
+        \S11.1; primer teo.\ de isom. \\[4pt]
+ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+El orden presentado anteriormente refleja más o menos cómo procederá la presentación final. Sin embargo, téngase en cuenta que el orden puede variar dependiendo del material cubierto y las restricciones de tiempo. Si se requieren fuentes adicionales sobre teoría de grupos, como grupos simples, también puedo consultar \textcite{silverman2022abstract}. En cuanto a resultados topológicos: \textcite{lopez2014point}. Respecto al álgebra lineal: \textcite{axler2024linear}. Finalmente, el modelo de lenguaje de gran escala que estoy empleando como asistencia para la comprensión es \textcite{claude2025}.
+
+
+\end{assignment}

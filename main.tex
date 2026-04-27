@@ -1,0 +1,65 @@
+\documentclass{setassignment}
+\input{warning} %here are the warning removed that the compiler calls.
+%\usepackage{showframe} %for debugging purposes.
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  citestyle=authoryear
+]{biblatex}
+
+
+\addbibresource{reference.bib}
+
+%uncomment if you wish to compile specfic assigments, useful to independnet downloads.
+%\includeonly{assignments/Homework/homework1, appendix/axioms, appendix/properties} 
+
+%
+\begin{document}
+
+%The table of contents gives a direct link to each assigment that is compiled
+%\tableofcontents
+\newpage
+
+% ---------- INCLUDED ASSIGNMENTS (use your own order)----------
+%\include{appendix/properties}
+
+
+
+%\include{assignments/example1}
+
+%\include{assignments/example2}
+
+\include{assignments/Homework/homework1}
+\include{assignments/Homework/homework2}
+\include{assignments/Homework/homework3}
+\include{assignments/Homework/homework4}
+
+%\include{assignments/Extra/ProjectGuide}
+\include{appendix/propositions}
+
+\include{appendix/theorem}
+
+%\include{assignments/Extra/SeminarioConfimacion}
+
+%\include{assignments/example3}
+%\include{assignments/example4}
+
+
+
+
+% ---------- INCLUDED Appendix (axioms, definitions, propositions, theorems)----------
+%\include{appendix/axioms}
+
+
+
+%\printbibliography
+
+
+\end{document}

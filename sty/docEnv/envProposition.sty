@@ -1,0 +1,54 @@
+\ProvidesPackage{sty/docEnv/envProposition}
+
+\newtheorem{prop}{Proposition}
+
+\newcommand{\mprop@printname}[1]{%
+  \if\relax\detokenize{#1}\relax
+  \else\ (\textit{#1})%
+  \fi
+}
+
+
+\NewDocumentEnvironment{mprop}{O{} O{} o}
+{%
+  \par\noindent
+  \IfValueTF{#1}
+    {\def\mprop@number{#1}}
+    {\refstepcounter{prop}\def\mprop@number{\theprop}}%
+
+  \IfNoValueTF{#3}
+    {\label{prop:\mprop@number}}
+    {\label{#3}}%
+
+  {\textbf{Proposition} \mprop@number\mthm@printname{#2}.}\par\noindent
+}
+{\par}
+
+
+% \begin{mprop}[A.3][Important][lem:key]
+% \end{mprop}
+
+
+
+
+
+
+
+% \newcounter{proposicion}
+% \newcommand{\proplist}{}  % optional list to collect all props
+
+% \newenvironment{proposicion}[2][]{%
+%   \refstepcounter{proposicion}%
+%   \def\@tempa{#1}%
+%   \ifx\@tempa\@empty
+%     \def\proptitle{Proposición~\theproposicion}%
+%   \else
+%     \def\proptitle{Proposición~\theproposicion~(\textit{#1})}%
+%   \fi
+%   \namedref{prop:#2}{\proptitle}%
+%   \gappto\proplist{\noindent\hyperref[prop:#2]{\proptitle}\par}%
+%   \begin{quote}
+%   \textbf{\proptitle}\label{prop:#2}\par
+% }{%
+%   \end{quote}\vspace{1em}
+% }

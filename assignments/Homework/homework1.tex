@@ -1,0 +1,201 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Homework 1},
+  duedate={3-February-2026},
+  toc=false,
+  toctitle={This appears on the Table of contents.},
+  exlist=false
+]
+
+
+
+
+\begin{exer}[Problem 2.37]
+Let $G$ be a finite group and $n$ an odd positive integer. Show that the number of elements $x$ of $G$ such that $x^n = e$ is odd. Then show that the number of elements $x$ of $G$ such that $x^2 \neq e$ is even.
+% \begin{proofsketch}
+% I am writing this proof sketch because I genuinely couldn't really figure out a formal proof for the theorem above, in part because the exercise is written in a manner that is hard to grasp what they are asking to prove. Additionally I want to provide an insight to capture the most out of this problem. Problem 2.37 is written as two exercises, but is not really clear what you aim to show. So let me explain.\\
+
+% The first part is to show that the set $A_n = \{x \in G \ : \ x^n = e\}$, where $n$ is an odd positive fixed point, then $\#A_n$ is odd. Here $\#A_n$ is shorthand for cardinality or size of the order. Because $G$ is finite, then $\#A_n$ must also be a finite integer; which again, is part of what we aim to show. Moreover, any odd positive integer can be expressed as $1 + 2k$, foreshadowing that $\#A_n = 1 + 2k$, but this is where I want to emphasize on this result. What we are really concluding with is 
+% \[
+% \#A_n = (\#\text{Number of fixed points}) + (\#\text{number of distinct fixed pairs}) \quad \quad \quad (1)
+% \]
+% A useful mechanism is through functions so that we can have a better construction for $(1)$. I.e. We are defining a function $(f, A_n, A_n)$ such that $f(x) = x^{-1}$. With this $f$, we can objectively redefine $(1)$ as,
+% \[
+% \#A_n = (\#\text{Number of fixed points for } f) + (\#\text{number of distinct fixed pairs from } f) \  (2)
+% \]
+% In the actual proof, I am giving a more rigorous explanation, nevertheless, the aim is going to be that $\#\text{Number of fixed points for } f = 1$, this is due to the $n$ that we fixed from the set $A_n$. While $\#\text{number of distinct fixed pairs from } f = 2k$, here the order pair $\{x,x^{-1}\}$ which are the points in the domain of $f$ and the images from the range of $f$. We can form up to $k$ of these pairs, from the fact that $dom(f)$ is finite, is that we can arrive at $2k$. This is a informative but informal argument that will be presented in the proof.\\ 
+
+
+% Moving on to second part is to show that $B_n = \{ x \in G \ : \ x^2 \neq e\}$, from here we are working with the same idea as before, only that as we will show there will be no fixed points for $f$, and hence $\#B_n = 2k$.
+% \end{proofsketch}
+\end{exer}
+\begin{proof}
+Let $G$ be a finite group. Now consider the set
+$A_n = \{ x \in G \ : \ x^n = e \}$, where $n$ is a fixed odd positive integer.  To show that \footnote{The notation $\#$ can be used to express cardinality, this notation is especially useful for finite sets as the one we are working with.}$\#A_n = 1 + 2k$.\\
+
+Since $G$ is finite so it must also its subset $A_n$, which means there exists an $n \in \mathbb{Z}_0^+$, such that $x^n = e$. Where in the premise, we had fixed $n$ to be an odd positive integer. Notice if $x^{n} = e$, then $x^{n}\cdot x^{-1} = e\cdot x^{-1}$ which results with $x^{n-1} = x^{-1}$, but as $n$ is odd, then $n-1$ is an even integer, hence $x^{n-1} = e$ with $2\mid n-1$, so in particularly we can indicate that $x^2 = e$ if and only if $x^{n-1} = x^{-1}$ where $n$ is an odd positive integer.\\   
+
+So now consider a function $(f, A_n, A_n)$ defined with $f(x) = x^{-1}$. Notice that $f$ has up to $k$ positive integers pairs of $\{x,x^{-1}\}$. Moreover, its images are $x^{-1}$, which as shown above, $x^{-1} = x^{n-1}$, and as this has the characteristic that is only satisfiable whenever $x^2 = e$, then $f$ has only one unique fixed point. Adding all together, we can indicate that the order for $A_n$ must cohered to
+\[
+\#A_n = \#(\text{fixed points for } f) + \#(\text{number of distinct fixed pairs from f}) = 1 + 2k
+\]
+
+While the second part of the proof indicates that there is a subset $B_n = \{x \in G \ : \ x^2 \neq e\}$, from the characteristic from before notice that $x^2 \neq e$ if and only if $x^{n-1} = x^{-1}$. So to suggest that $x^2\neq e$ then $x^{n-1} \neq x^{-1}$ for positive integer odd $n$. Hence $f$  remain as before, with the exception that there is no fixed points for $f$, resulting in
+\[
+\#B_n = \#(\text{fixed points for } f) + \#(\text{number of distinct fixed pairs from f}) = 0 + 2k = 2k
+\]
+
+
+
+
+
+\end{proof}
+
+
+\begin{exer}[Problem 2.45]
+Prove that if $G$ is a group with the property that the square of every element is the identity, then $G$ is abelian.
+\begin{proof}
+Let $x,y \in G$ such that $x^{2} = e = y^{2}$ for $n \in \mathbb{Z}^+$, to prove $x\cdot y = y \cdot x$. Consider the product $x\cdot y$ and evaluate itself again, like such
+\begin{proofarray}
+x\cdot y \cdot x \cdot y &=& e  & \text{Given by the square property} \\
+\multicolumn{4}{l}{\text{We want to evaluate an } $x$ \text{ from the left most side}}\\
+ x \cdot (x\cdot y \cdot x \cdot y) & = &  x\cdot e & \text{Initiated left most case}\\
+ (x\cdot x) \cdot (y \cdot x \cdot y) & = & x\cdot e & \text{ Associativity} \\
+ e \cdot (y \cdot x \cdot y) & = & x\cdot e & \text{ Square property with } x \\
+ y \cdot (y \cdot x \cdot y) & = & y \cdot x\cdot e & \text{ Evaluate } y \text{ on both sides}\\
+ (y \cdot y) \cdot (x \cdot y) & = & y \cdot x \cdot e & \text{ Associativity}\\
+ e \cdot (x \cdot y) & = & y \cdot x \cdot e & \text{ Square property with } y\\
+ \multicolumn{4}{l}{\text{The left most has arrived at } $x \cdot y = y \cdot x$} \\ 
+ \multicolumn{4}{l}{\text{We want to evaluate an } $y$ \text{ from the right most side}}\\
+ (x\cdot y \cdot x \cdot y) \cdot y & = &  e\cdot y & \text{Initiated right most case}\\
+ (x\cdot y \cdot x) \cdot (y \cdot y) & = &  e\cdot y & \text{Associativity}\\
+ (x \cdot y \cdot x) \cdot e & = & e \cdot y & \text{ Square property with } y \\
+ (x \cdot y \cdot x) \cdot x & = & e \cdot y \cdot x & \text{ Evaluate } x \text{ on both sides}\\
+ (x \cdot y) \cdot (x \cdot x) & = & e \cdot y \cdot x & \text{ Associativity}\\
+ (x\cdot y) \cdot e &=& e \cdot y \cdot x & \text{ Square property with } x\\
+ \multicolumn{4}{l}{\text{The right most has arrived at } $x \cdot y = y \cdot x$} \\
+ \end{proofarray}
+ Since both the left most and right most arrived with the same, that being a commutativity with $x,y$. We then can conclude that $G$ is also commutative.
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 2.49]
+Complete the table below.
+\begin{proof}
+Where $e,a,b,c,d\in G$ with $e$ the identity.
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+$\begin{array}{c|ccccc}
+    & \boldsymbol{e} & \boldsymbol{a} & \boldsymbol{b} & \boldsymbol{c} & \boldsymbol{d} \\ \hline
+    \boldsymbol{e} & e & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{d} \\
+    \boldsymbol{a} & \textbf{a} & b & \textbf{c} & \textbf{d} & e \\
+    \boldsymbol{b} & \textbf{b} & c & d & e & \textbf{a} \\
+    \boldsymbol{c} & \textbf{c} & d & \textbf{e} & a & b \\
+    \boldsymbol{d} & \textbf{d} & \textbf{e} & \textbf{a} & \textbf{b} & \textbf{c}
+\end{array}$
+\end{center}    
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 3.10]
+Given that $\{e,a,a^2,b,ab,a^2b\}$ is a group where $\mid a \mid =3$, $\mid b \mid = 2$ and $ba = a^2b$, determine which of the six elements is $aba^2$ and which is $a^2bab$.    
+\begin{proof}
+Given the elements, $\Sigma = \{e,a,a^2,b,ab,a^2b\}$, with $\mid a \mid = 3 \Rightarrow a^3 = e$ and $\mid b \mid = 2 \Rightarrow b^2 = e$. With a non-commutative relation $ba=a^2b$. We need to find the word from $\Sigma$ that equates to $aba^2$ and $a^2bab$.\\
+
+From $\Sigma$ consider $\{a^2b\} \cup \{ab\} = \{a^2bab\}$ the required word, we wish to find its most simplified expression which can be found in $\Sigma$. So consider $\{a\} \cup \{a^2bab\} = \{a^3bab\}$, since $a^3 =e$, then $\{ebab\} = \{bab\}$; now with the non-commutative relation we obtain $\{(ab)b\} = \{(a^2b)b\}$, since $b^2 =e$, then $\{a^2(bb)\} =\{a^2e\} = \{a^2\} \in \Sigma$. Hence $\{a^2\}$ is our desired word.\\
+
+From $\Sigma$ consider $\{a\} \cup \{ba\} \cup \{a\} = \{aba^2\}$ the required word, to find the word in $\Sigma$ that is its simplified form. So consider $\{aba^2\} \cup \{b\} = \{ab(a^2b)\}$, by the non-commutative relation, $\{ab(ba)\} = \{a(bb)a\}$, now that $b^2 =e$, $\{aea\} = \{aa\} = \{a^2\} \in \Sigma$. Hence $\{a^2\}$ is our desired word.\\
+
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 3.18]
+Prove that if $a$ is the only element of order $2$ in a group, then $a$ lies in the center of the group.
+\begin{proof}
+Let $G$ be a group, with $a,g \in G$, such that $a^2 = e$. We now aim to show that $a$ lies in the center of the group, for this we require to show that $ga = ag$, this can be obtained through the conjugate subgroup. That is consider $x = gag^{-1}$, then by operating $x$ on itself we obtained that 
+\[
+x^2 = gag^{-1} \cdot gag^{-1} = ga(g^{-1}g)ag^{-1} = gaag^{-1} = ga^2g^{-1} = gg^{-1} = e
+\]
+However, to complete the proof, we now need to show that $\mid x \mid = 2$ if and only if $x = a$, so that this would preserve the uniqueness for $a$. For that suppose by contradiction that $x = e$. So consider $gag^{-1} = x = e$\footnote{The left hand side where $x=e$ is what the assumption has given us to work with.}, what follows will be some algebraic manipulation to obtain that $a = x = e$.
+\begin{proofarray}
+   gag^{-1} & =  & e  &  \text{The premise}\\
+   g^{-1}(gag^{-1}) & = & g^{-1}e & \text{Insert } g^{-1} \text{ on the left most}\\
+   (g^{-1}g)ag^{-1} & = & g^{-1} & \text{Associativity }\\
+   (e)ag^{-1} & = & g^{-1} & \text{Identity }\\
+   (ag^{-1})g & = & g^{-1}g & \text{Insert } g \text{ on the right most}\\
+   a(g^{-1}g) & = & g^{-1}g & \text{Associativity }\\
+   ae & = & e & \text{Identity }\\
+   a & = & e & \text{Identity }\\
+\end{proofarray}
+Hence we had arrive that $a = e$, which is a contradiction because we assumed that $a$ had an element of order $2$, therefore $x\neq e$. Which means that by uniqueness from the order $2$, we can say that $x = a$. And with that we can then say that $gag^{-1} = a$ and $g^{-1}ag = a$, thus $a$ lies within the center of $G$. 
+\end{proof}    
+\end{exer}
+
+
+\begin{exer}[Problem 3.41]
+Let $G$ be a group. Show that $Z(G) = \cap_{a\in G} C_{(a)}$\footnote{This means the intersection of all subgroups of the form $C(a)$.}. 
+\begin{proof}
+We will prove this theorem through iff strategy\footnote{If you don't know, proof by inclusion can be achieved by using double implications, this is especially useful whenever the proof has a symmetric argument. In this case is basically a proof by unpacking the definitions for groups. These definitions can be review in the comment below.}. Let $x \in G$ then
+\begin{proofarray}
+x \in \bigcap\limits_{x\in G} C(a) & \iff & x \in C(a) & \text{for all } a \in G\\
+& \iff & xa = ax & \text{for all } a \in G\\
+\multicolumn{4}{l}{\text{By definition of a Centralizer of a subset }} \\
+& \iff & x \in C(G) &  \\
+& \iff & x \in Z(G) \\
+\multicolumn{4}{l}{\text{We then conclude that } $x \in \bigcap\limits_{x\in G} C(a) \iff x \in Z(G)$  } \\
+\end{proofarray}
+By the iff proof technique, we then conclude that $Z(G) = \bigcap\limits_{x\in G} C(a)$
+
+\end{proof}
+
+\begin{comments}
+Some reminders:\\
+Recall that the center of G is
+\[
+Z(G) = \{z \in G \ : \ zg = gz \text{ for all } g \in G\}
+\]
+While the centralizer of an element $a \in G$ would be
+\[
+C(a) =\{x\in G \ : \ xa = ax \}
+\]
+But if we want the set of centralizers of G, we would then say $A \subseteq G$, 
+\[
+C(A) = \{ x \in G \ : \  xa = ax \text{ for all } a \in A\}
+\]
+In particular, if we let $G = A$, then we would obtain $C(G)$. Which is what the proof has used to show that
+\[
+\bigcap_{a \in G} C(a) = C(G)
+\]
+Which again would result in 
+\[
+C(G) = Z(G)
+\]
+\end{comments}
+\end{exer}
+
+\begin{exer}[Problem 3.55]
+Let $a$ be a group element of order $n$, and suppose that $d$ is a positive divisor of $n$. Prove that $\mid a^d \mid  = \frac{n}{d}$
+\begin{proof}
+Let $\mid a \mid =n$ and let $d\mid n$. We wish to obtain that $\mid a^d\mid = \frac{n}{d}$, for that we would express $n=dk$, where $k=\frac{n}{d}$.
+
+After which we would evaluate $(a^d)^k = a^{dk} = a^n = e.$ Hence $a^d$ has finite order and $\mid a^d \mid$ divides $k$. Now let $m=\mid a^d\mid$. Then by definition $(a^d)^m=e$, so $e=(a^d)^m=a^{dm}$. Thus $a^{dm}=e$, and since $\mid a\mid =n$, we must have $n\mid dm$. Using $n=dk$, this becomes $dk\mid dm$, hence $k\mid m$.
+So we have $m\mid k$ and $k\mid m$, therefore $m=k$. Conclude with the desired result: $\mid a^d\mid =k=\frac{n}{d}.$
+
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 3.67]
+Suppose that $a$ is an element of a group and $a^m = e$. Prove that $\mid a\mid$ divides m.
+\begin{proof}
+Let $a \in G$ with $G$ a group. Also suppose that $a^m = e$. We wish to prove that $\mid a \mid$ divides $m$. For this let $|a| = n$, by the euclidean algorithm,
+\[
+m = qn + r \quad \quad 0 \leq r < n
+\]
+Then \[e = a^m = a^{qn +r} = a^{qn} \cdot a^{r} = (a^{n})^{q} \cdot a^{r} = e^q \cdot a^r  = a^r\]
+Hence $e = a^r$ and since we had that $0 \leq r < n$,  as $r$ is defined as the least possible integer, then $r = 0$. With this we can conclude that  $n \mid m$, where again $n = \mid a \mid$.
+\end{proof}    
+\end{exer}
+
+
+\end{assignment}

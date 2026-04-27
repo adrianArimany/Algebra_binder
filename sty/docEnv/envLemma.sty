@@ -1,0 +1,46 @@
+\ProvidesPackage{sty/docEnv/envLemma}
+
+\newtheorem{lem}{Lemma}
+
+\newcommand{\mlemma@printname}[1]{%
+  \if\relax\detokenize{#1}\relax
+  \else\ (\textit{#1})%
+  \fi
+}
+
+
+\NewDocumentEnvironment{mlemma}{O{} O{} o}
+{%
+  \par\noindent
+  \IfValueTF{#1}
+    {\def\mlem@number{#1}}
+    {\refstepcounter{lem}\def\mlem@number{\thelem}}%
+
+  \IfNoValueTF{#3}
+    {\label{lem:\mlem@number}}
+    {\label{#3}}%
+
+  {\textbf{Lemma} \mlem@number\mthm@printname{#2}.}\par\noindent
+}
+{\par}
+
+
+% \begin{mlemma}[A.3][Important][lem:key]
+% \end{mlemma}
+
+
+% \newtheorem{lem}{Lema}
+
+% % Variante simple sin xparse/etoolbox
+% \newenvironment{mlemma}[2][]{%
+%   \refstepcounter{lem}%
+%   \if\relax\detokenize{#2}\relax
+%     \def\thelabel{lem:\thelem}%
+%   \else
+%     \def\thelabel{#2}%
+%   \fi
+%   \label{\thelabel}%
+%   \par\noindent\textbf{Lema \thelem}%
+%   \if\relax\detokenize{#1}\relax\else\ \textit{#1}\fi.%
+%   \par\noindent
+% }{\par}

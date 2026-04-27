@@ -1,0 +1,16 @@
+\ProvidesPackage{sty/bodyEnv/bodyArray}
+%
+% This is an array classic to use proof with iff.
+%
+\newenvironment{proofarray}
+{%
+  \par
+  \renewcommand{\arraystretch}{2}% double row spacing
+  \begin{flushleft}%
+  \begin{tabular}{@{} *{3}{>{$}l<{$}} @{\qquad} >{$}l<{$} @{}}
+}
+{%
+  \end{tabular}%
+  \end{flushleft}%
+  \par
+}

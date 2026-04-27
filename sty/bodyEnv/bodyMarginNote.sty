@@ -1,0 +1,22 @@
+% sty/bodyEnv/bodyMarginNote.sty
+\ProvidesPackage{sty/bodyEnv/bodyMarginNote}
+
+\RequirePackage{marginnote}
+
+% Increase for more separation between notes
+\setlength{\marginparpush}{8pt}
+
+\newlength{\mnoteshift}
+\setlength{\mnoteshift}{0.8cm}
+
+% \mnote{...} -> margin note without marker
+\newcommand{\mnote}[1]{%
+  \marginpar{%
+    \hspace*{\mnoteshift}%
+    \parbox{\marginparwidth}{%
+      \raggedright\footnotesize\sloppy
+      #1%
+    }%
+  }%
+}
+

@@ -1,0 +1,138 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Proved Proposition (Examples) in  Group Theory},
+  duedate={\today},
+  toc=false,
+  toctitle={This appears on the Table of contents.},
+  exlist=false
+]
+
+
+% \newcommand{\Aut}[1]{\ensuremath{\mathrm{Aut}(#1)}}
+% \newcommand{\Inn}[1]{\ensuremath{\mathrm{Inn}(#1)}}
+% \newcommand{\Ord}[2]{\ensuremath{\mathrm{ord}(#1)=#2}}
+% \newcommand{\ord}[1]{\ensuremath{\mathrm{ord}(#1)}}
+% \newcommand{\Gen}[1]{\ensuremath{\langle #1 \rangle}}
+
+\begin{mprop}[3][][prop:3]
+Let $G$ is an abelian group and $n \in \mathbb{Z}$. Then $H = \{ x^n \ : \ x \in G\}$ is a subgroup of $G$.
+\end{mprop}
+
+\begin{mprop}[4][][prop:4]
+Let $G$ be a abelian group and $n \in \mathbb{Z}$ (fixed). Prove that $H = \{ x \in G \ : \ x^n = e\}$
+\end{mprop}
+
+\begin{mprop}[5][][prop:5]
+Let $G$ be a group and $a \in G$, then $\Gen{a} = \{ a^n \ : \ n \in \mathbb{Z} \}$ is a subgroup of $G$.
+\end{mprop}
+
+
+\begin{mprop}[6][][prop:6]
+Let $G$ be a group and $S$ is a finite subset of $G$, then\\ $\Gen{s} = \{s^{\alpha}, s_2^{\alpha_2}, \ldots,s_n^{\alpha_n} \ : \ s_i \in S, \backepsilon \alpha_i \in \mathbb{Z}\}$ is a subgroup of G. 
+\end{mprop}
+
+
+\begin{mprop}[7][][prop:7]
+Let $r,s \in D_n$ then $rs = sr^{-1}$
+\end{mprop}
+
+
+\begin{mprop}[8][$D_{n\geq 3}$ is not abelian][prop:8]
+Let $r,s \in D_n$ then $r^is = sr^{-i}$, $\forall i \in \mathbb{Z}$
+\end{mprop}
+
+\begin{mprop}[9][][prop:9]
+Let $G$ be a cyclic group then $G$ is abelian.
+\end{mprop}
+
+\begin{mprop}[13][][prop:13]
+The order for $S_n$ is $n!$.
+\end{mprop}
+
+\begin{mprop}[14][][prop:14]
+Let $G$ be a permutation group with sets $X$ and $a \in X$. Show that\\ stab$(a) = \{\alpha \in G \ : \ \alpha(a) = a \}$ is subgroup of $G$.
+\end{mprop}
+
+\begin{mlemma}[19][][lem:19]
+Let $\beta_1, \beta_2, \beta_3, \ldots, \beta_r$ transpositions for $S_n$. If $\epsilon = \beta_1\beta_2\cdots\beta_r$ then $r$ is even.
+\end{mlemma}
+
+\begin{mprop}[20][][prop:20]
+Let $\mu_n = \{ z \in \mathbb{C} \ : \ z^n = 1 \}$ the unit complex roots. Then $(Z_n, +) \cong (\mu_n, \times)$
+\end{mprop}
+
+\begin{mprop}[21][][prop:21]
+Let $\mathbb{C} \to \mathbb{C}$ with $a+bi \mapsto a-bi$ is an automorphism in $\mathbb{C}$.
+\end{mprop}
+
+\begin{mprop}[22][][prop:22]
+Let $G$ be a group, with $\varphi_a \ : \ G \to G$ defined by $\varphi_a(x) = axa^{-1}$ with $a \in G$ is fixed, then $\varphi_a$ is an automorphism of $G$.
+\end{mprop}
+
+\begin{mprop}[23][][prop:23]
+$\mathbb{Z}_2 \oplus \mathbb{Z}_3 \cong \mathbb{Z}_6$
+\end{mprop}
+
+\begin{mprop}[24][][prop:24]
+Show that every group $G$, where $\# G = 4$, then $G \cong \mathbb{Z}_4$ xor $G \cong \mathbb{Z}_2 \oplus \mathbb{Z}_2$.  
+\end{mprop}
+
+\begin{mprop}[25][][prop:25]
+Following Corollary 25, the following are isomorphic:
+\begin{itemize}
+    \item $U(6) \cong \mathbb{Z}_2$
+    \item $U(8) \cong V_4$
+    \item $U(15) \cong U(3) \oplus U(7) \cong \mathbb{Z}_2 \oplus \mathbb{Z}_4$
+    \item $U(21) \cong U(3) \oplus U(27) \cong \mathbb{Z}_2 \oplus \mathbb{Z}_6$
+    \item $U(105) \cong U(3) \oplus U(5) \oplus U(7) \cong \mathbb{Z}_2 \oplus \mathbb{Z}_4 \oplus \mathbb{Z}_6$
+    \item $U(144) \cong U(16)\oplus U(9) \cong \mathbb{Z}_4 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_6 \cong U(105)$
+    \item $\Aut{\mathbb{Z}_6} \cong U(6) \cong U(2) \oplus U(3) \cong \mathbb{Z}_2$
+    \item $\Aut{\mathbb{Z}_{12}} \cong U(12) \cong \mathbb{Z}_2 \oplus \mathbb{Z}_2 \cong V_4 \cong \Aut{\mathbb{Z}_8}$
+\end{itemize}
+\end{mprop}
+
+\begin{mprop}[26][][prop:26]
+Let $H \leq G$ and $G$ is abelian, then $H \lhd G$.
+\end{mprop}
+
+\begin{mprop}[27][][prop:27]
+Let $G$ be a group, then $Z(G) \lhd G$
+\end{mprop}
+
+\begin{mprop}[28][][prop:28]
+Let $S$ a subset of $G$, then $N_G(S) \leq G$
+\end{mprop}
+
+\begin{mprop}[29][][prop:29]
+Let $H \leq G$.
+\begin{enumerate}
+    \item[a)] $H \lhd N_G(H)$
+    \item[b)] $N_G(H)$ is the greatest subgroup of G that has property $(a)$.
+\end{enumerate}
+\end{mprop}
+
+\begin{mprop}[30][][prop:30]
+The alternating sign $A_n \lhd S_n$
+\end{mprop}
+
+
+\begin{mprop}[31][][prop:31]
+Let $H$ a subgroup of $D_n$ that consists only of rotations, (i.e. $\{e, r, r^{i-1}\}$) then $H \lhd D_n$.
+\end{mprop}
+
+\begin{mprop}[][][]
+
+\end{mprop}
+
+
+\begin{mprop}[][][]
+
+\end{mprop}
+
+
+\begin{mprop}[][][]
+
+\end{mprop}
+
+\end{assignment}

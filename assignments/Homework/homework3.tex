@@ -1,0 +1,260 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Homework 3},
+  duedate={26 February, 2026},
+  toc=false,
+  toctitle={This appears on the Table of contents.},
+  exlist=false
+]
+
+\begin{exer}[Problem 5.12]
+If $\alpha$ is even, prove that $\alpha^{-1}$ is even. Similarly, if $\alpha$ is odd, prove that $\alpha^{-1}$ is odd.
+\begin{proof}
+Consider the permutation $\alpha$ that is even, that is it can be expressed as a product of even number of transpositions, where we define $\tau_k = (a_k\ b_k)$:
+\[
+\alpha = \prod_{k=1}^{2n} \tau_k \xrightarrow{\tau^{-1}\ =\ \tau}  \alpha^{-1} = \prod_{k=2n}^{1} \tau_k 
+\]
+Hence $\alpha^{-1}$ is even.\\
+
+Similar if $\beta$ is odd, then let the transposition $\tau_k = (a_k\ b_k)$ then
+\[
+\beta = \prod_{k=1}^{2n+1} \tau_k \xrightarrow{\tau^{-1}\ = \ \tau} \beta^{-1} = \prod_{k=2n+1}^{1} \tau_k
+\]
+Hence $\beta^{-1}$ is odd.
+\end{proof}   
+\end{exer}
+
+
+\begin{exer}[Problem 5.19]
+Let $\alpha$ and $\beta$ belong to $S_n$. Prove that $\alpha^{-5}\beta\alpha^3$ is odd $\iff$ $\beta$ is odd.
+\begin{proof}
+Let $\alpha$ and $\beta$ belong the the permutation group $S_n$. Suppose that $\alpha^{-5}\beta\alpha^3$ is odd. With $\tau$ being the transposition for $\alpha$; and $\mu$ the transposition for $\beta$. Then
+\[
+\alpha^{-5}\beta\alpha^3 = \prod_{k=1}^{2n+1} \tau_k^{-5}\mu_k\tau_k^{3}
+\]
+We can simplify each of the transposition into individual terms, remember that $\tau^2 = e$ and $\tau^{-1}=\tau$:
+\[
+\alpha^{-5} = \left(\alpha^{-1}\right)^5 = \prod_{t=i}^{5}\left(\prod_{i=r}^1 \tau_i\right) 
+\]
+Similarly
+\[
+\alpha^{3} = \prod_{t=i}^{3}\left(\prod_{i=1}^r \tau_i\right)
+\]
+We had simplified the product into smaller products for each transposition:
+\[
+\alpha^{-5}\beta\alpha^3 = \prod_{t=i}^{5}\left(\prod_{i=r}^1 \tau_i\right) \left[ \prod_{j=1}^s \tau_j \right] \prod_{t=i}^{3}\left(\prod_{i=1}^r \tau_i\right)
+\]
+So we have that the products add up to $5r + s + 3r = 8r + s$, with $s$ and $r$ positive integers. Clearly for any parity on $r$, $8r$ is even. So we have two cases for $s$. If $s$ is even, then $8r+s$ is even, contradicting the premise that $\alpha^{-5}\beta\alpha^3$ is odd. Meanwhile, if $s$ is odd, then $8r + s$ is odd which satisfies the premise. Hence have arrived that
+\[
+\beta = \prod_{j=1}^{s} \tau_j \quad \quad \text{ with } s \text{ being odd}
+\]
+
+To show the reverse implication, is by stating that
+\[
+\beta = \prod_{j=1}^{s} \tau_j \quad \quad \text{ with } s \text{ being odd}
+\]
+
+Now consider $\alpha^{-5}$ and $\alpha^{3}$, we had already shown what their transposition products operate to, so we obtain a result from before
+\[
+\alpha^{-5}\beta\alpha^3 = \prod_{t=i}^{5}\left(\prod_{i=r}^1 \tau_i\right) \left[ \prod_{j=1}^s \tau_j \right] \prod_{t=i}^{3}\left(\prod_{i=1}^r \tau_i\right)
+\]
+We notice that the products add up to $8r + s$, again is clear that $8r$ is even regardless on the parity from $r$, and $s$ is odd from the premise, therefore $8r + s$ is a odd product. Which means that
+\[
+\alpha^{-5}\beta\alpha^3 = \prod_{k=1}^{2n+1} \tau_k^{-5}\mu_k\tau_k^{3}
+\]
+
+
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.44]
+(1) Let $H = \{\beta \in S_5 \ : \ \beta(1) = 1 \text{ and } \beta(3) = 3\}$, prove that $H \preccurlyeq S_5$. (2) How many elements are in $H$?  (3) Would the argument satisfy if $S_5$ is replaced by $S_n$ for $n \geq 3$?  (4) How many elements are in $H$ when $S_5$ is replaced by $A_n$ for $n \geq 4$?
+\begin{proof}[Proof for part (1)]
+Consider the set $H = \{\beta \in S_5 \ : \ \beta(1) \text{ and } \beta(3) \}$, here we would have a non-trivial $3-$cycle since we have two fixed points. To show that $H$ is a subgroup from $S_5$. Notice that $\epsilon(1) = 1 \text{ and } \epsilon(3) = 3 \in H \neq \emptyset$. Now consider $\beta, \alpha \in H$ and with fixed point $\beta(1) = 1$ and $\alpha(1) = 1$, then $\alpha^{-1}(1) = 1$, therefore
+\[
+(\beta\alpha^{-1})(1) = \beta(\alpha^{-1}(1)) = \beta(1) = 1 
+\]
+Similarly consider the other fixed point, $\beta(3) = 3$ and $\alpha(3) = 3$, then $\alpha^{-1}(3) = 3$, therefore
+\[
+(\beta\alpha^{-1})(3)=\beta(\alpha^{-1}(3)) = \beta(3) = 3 
+\]
+In either fixed point, we have that $\beta\alpha^{-1} \in H \preccurlyeq S_5$ by the subgroup test.
+\end{proof}
+\begin{proof}[Proof for part (2)]
+Because $H$ forms a $3-$cycle separated from the two fixed points, then \[|H| =_c |\mathbb{Z}_3| =_c 3! = 6\], 
+     
+\end{proof}
+\begin{proof}[Proof for part (3)]
+Yes the argument remain valid because to show that $H \preccurlyeq S_n$ is simply to show that the fixed points preserve closure.     
+\end{proof}
+\begin{proof}[Proof for part (4)]
+Notice that $A_n$ for $n \geq 4$ is the set of all even permutations in $S_n$. From theorem 22, we had shown that if $n \geq 2$ then $|A_n| =_c |\frac{\mathbb{Z}_n}{2}|  = \frac{n!}{2}$\footnote{Notice that the $4 > 2$, so it doesn't affect the order for $A_n$.}. By part (2), notice that we had that $H \subset \mathbb{Z}_5$, but because we fixed two points, then $H$ only had a $3-$cycle, so if we have $A_n$, then we consider a permutation with $S_{n\geq 4}$, hence $|H| =_c |\mathbb{Z}_{n-k}|$, here the $k$ are the number of fixed points, in this case $k = 2$. So going back with Theorem 22, with the adjustment that we had just mentioned, we can show that
+\[
+|(H \cap A_n)| =_c |\frac{\mathbb{Z}_{n-2}}{2}| =_c \frac{(n-2)!}{2}
+\]
+Here we used the intersection, otherwise we would only consider the order for $|H| =_c (n-2)!$, but because we want only the even permutations, we need to intersect it with $A_n$.
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.60]
+Show that every element in $A_n$ for $n\geq 3$ can be expressed as a $3-$cycle or a product of $3-$cycles.    
+\begin{proof}
+Consider from Theorem 20, a product of transposition such that $\sigma = S_n$ where $\sigma = \beta_1\beta_2\cdots \beta_r$. By Lemma 19\footnote{Let $\beta_1,\beta_2,\cdots, \beta_r$ transpositions for $S_n$. If $\epsilon = \beta_1\beta_2\cdots \beta_r$ then $r$ is even.}, we know that $\sigma \in A_n \iff r \text{ is even}$. From this point we shall prove that any $A_{n\geq 3}$ can be expressed as a $3-$cycle or a product of it. So we initiate by taking every transposition into pairs:
+\[
+\sigma = ((\beta_1)(\beta_2))((\beta_3)(\beta_4))\cdots((\beta_{r-1})(\beta_r))
+\]
+I wish to emphasize that if we can adjust Theorem 20, by a always taking every transposition in pairs, then we have to show that each pair of even number of transpositions can be re expressed as a $3-$cycle. \footnote{There are to two constraint to keep in mind, first is that $n\geq 3$ for $A_n$, otherwise, for $A_{n<3}$ then we can't formed a product from two pairs of transpositions. Secondly, it is vital to keep in mind that we are working with the set $A_n$ (and not $S_n$) which is only taking even number of transpositions, because if we add the option for odd number of transpositions then there will be a transposition without a pair, making that specific transposition incapable from becoming a $3-$cycle.} We proceed, without loss of generality, how to convert any paired product of transpositions $(\beta_i)(\beta_j)$, with $i\neq j$ and $j$ being the immediate successor from $i$, into a $3-$cycle through the following two cases:\\
+\begin{itemize}
+    \item[Case 1:]  If $((\beta_i)(\beta_j))$ overlap with one element, such that $\beta_i =(ab)$ and $\beta_j = (bc)$, if $(ab)(bc)$ then we can apply the disjointed procedure to obtain $(abc)$ which is a $3-$cycle. Do notice that transpositions are commutative, so we can always ensure that the form $(ab)(bc)$ is obtained.  
+    \item[Case 2:] If $((\beta_i)(\beta_j))$ are disjointed. such that $\beta_i = (ab)$ and $\beta_j = (cd)$, if $(ab)(cd)$, since these transpositions are disjointed, by taking any element from $\beta_j$ (i.e. the rightmost transposition), we can re expressed the product as $(acb)(acd)$, and because transpositions are commutative, we can equivalently expressed the product as $(adb)(adc)$; either way we formed a product of $3-$cycles.
+\end{itemize}
+Since we had consider an arbitrary pair $\beta_i$,$\beta_j$ from the even number of transpositions from $A_n$, then any other pair in this chain of transposition can also be converted into either a single $3-$cycle or a product of $3-$cycles.
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.74]
+A card shuffling machine always rearranges cards in the same ways way relative to the order in which they were given to it. All of the hearts arranged in order from ace to king were put into the machine, and then the shuffled cards were put into the machine again to be shuffled. If the cards emerged in the order 
+$$10,9, Q,8,K,3,4,A,5,J,6,2,7$$
+In what order were the cards after the first shuffle?
+\begin{proof}
+Important, from the problem we can determine that the order they gave us, is the second shuffle - lets call this $\sigma^2$ - we want to obtain the original order that is $\sigma$. For this we are using the standard order in cards, to form another cycle $\pi$, such that $\sigma^2 = \pi$. So the first step is to obtain $\pi$, so consider the permutation $\sigma^2$ with range as the order mentioned above, and take the domain as the standard order for cards. That is
+\[
+\sigma^2 = \begin{pmatrix}
+  A & 2  & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & J & Q & K \\
+  10 & 9 & Q & 8 & K & 3 & 4 & A & 5  & J & 6 & 2 & 7 
+\end{pmatrix}
+\]
+Using the map defined in $\sigma^2$, we initiate by doing a reverse mapping starting with the image that is our first label in the standard order, and from there proceed by jumping backwards to from a new cycle. This cycle is $\pi$ and we had obtained:
+\[
+\pi = \begin{pmatrix}
+  A & 8 & 4  & 7 & K & 5 & 9 & 2 & Q & 3 & 6  & J & 10 
+\end{pmatrix}
+\]
+Notice that $\pi$ is a $13-$cycle, this tell us that it behaves through $(mod\ 13)$. To obtain $\sigma$, we need to solve the following equation: 
+\[
+2k \equiv 1 \quad \quad (mod\ 13)
+\]
+The $2k$ is because we are essentially on the second shuffle, and we want to reverse one step backwards so that we can obtain $\sigma$. Notice that $2\cdot 7 = 14 \equiv 1 \quad (mod\ 13)$, so $k = 7$. What this implies is that in $\pi$, we need to move each element in the index seven steps ahead. That is 
+\[
+\pi = \begin{pmatrix}
+  0 & 1 & 2  & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+  A & 8 & 4  & 7 & K & 5 & 9 & 2 & Q & 3 & 6  & J & 10 
+\end{pmatrix} 
+\]
+\[
+\sigma = \begin{pmatrix}
+  0 + 7 & 7 + 7 & 1 + 7  & 8 + 7 & 2 + 7 & 9 + 7 &3 + 7 & 10 + 7 &  4 + 7 & 11 + 7 & 5 + 7  & 12 + 7 & 6 + 7 & \\
+  \pi(7) & \pi(1) & \pi(8) & \pi(2) & \pi(9) & \pi(3) & \pi(10) & \pi(4) & \pi(11) & \pi(5) & \pi(12) & \pi(6) & \pi(0)        \\
+  2 & 8 & Q  & 4 & 3 & 7 & 6 & K  & J & 5 & 10 & 9  & A    
+\end{pmatrix}
+\]
+Expressing $\sigma$ as a formal cycle we can obtain the original shuffle as the following:
+\[
+\begin{pmatrix}
+    A & 2 & 8 & Q  & 4 & 3 & 7 & 6 & K  & J & 5 & 10 & 9 
+\end{pmatrix}
+\]
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.78]
+Let $\alpha$ belongs to $S_n$. Prove that $|\alpha|$ divides $n!$
+\begin{proof}
+Consider $\alpha \in S_n$, so due to Theorem 14, $\alpha$ is either one cycle or a product of disjointed cycles. Consider first the simplest case, where $\alpha$ is just one cycle, with length $l$; from Theorem 17, we can express $|\alpha| =_c lcm\{l\} = l$, in particular, $l \leq n$, with $n$ the number of permutations in $S_n$. Hence $|\alpha| \mid |S_n| = n!$.\\
+
+Now we proceed with the harder, and yet similar, case where $\alpha$ is expressed as a product of disjointed cycles. And suppose that these cycles have length $l_1, \cdots , l_k$ respectively. Through Theorem 17, we know that $|\alpha| = lcm\{l_1,\cdots,l_k\}$, notice that for each $l_i \leq n$, so $lcm\{l_1,\cdots, l_k\} \mid l_1\cdots l_k$, and similarly, $\sum_{i=1}^k l_i \leq n$ then $l_1\cdots l_k \mid n!$, by the transitivity in the divisibility, 
+\[
+|\alpha| =_c lcm\{l_1,\cdots, l_k\} \mid |S_n| =_c n!
+\]
+\end{proof}    
+\end{exer}
+
+\begin{quote}
+    Additional four assignments are based on the geometric progression starting with 5. That is,
+    \[
+    a_n = 5 \cdot 2^n, \quad \forall n \in \mathbb{N}
+    \]
+\end{quote}
+
+\begin{exer}[Problem 5.5]
+Determine the order of each of the following permutations:
+\begin{itemize}
+    \item[a] $(124)(357)$
+    \item[b] $(124)(3567)$
+    \item[c] $(124)(35)$
+    \item[d] $(124)(357869)$
+    \item[e] $(1235)(24567)$
+    \item[f] $(345)(245)$
+\end{itemize}
+\begin{proof}
+Remember from Problem 5.78, we have to use Theorem 17, where to find the order of any disjointed product of cycles, is the $lcm(\{l_1, \cdots, l_k\})$. Hence
+\begin{itemize}
+    \item[a] $|(124)(357)| =_c lcm(3,3) = 3$ 
+    \item[b] $|(124)(3567)| =_c lcm(3,4) = 3 \cdot (2\cdot 2) = 12$
+    \item[c] $|(124)(35)| =_c lcm(3,2) = 3 \cdot 2 = 6$
+    \item[d] $|(124)(357869)| =_c lcm(3,6) = 3 \cdot (3 \cdot 2) =  3 \cdot 2 = 6$
+\end{itemize}
+Notice the following two are not disjointed, so convert to disjointed then apply Theorem 17.
+\begin{itemize}
+    \item[e] $(1235)(24567) \Rightarrow |(124)(3567)| =_c lcm(3,4) = 12$
+    \item[f] $(345)(245) \Rightarrow |(25)(34)| =_c lcm(2,2) = 2$ 
+\end{itemize}
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.10]
+Write $(13)(1245)(13)$ and $(24)(13456)(24)$ in disjoint cycles form. Give  a simple description of how each product cycle compares with middle cycle in each product. 
+\begin{proof}
+ Consider the permutations:
+ \[
+ \sigma = \underbrace{(12)}_{\sigma_1}\underbrace{(1245)}_{\sigma_2}\underbrace{(13)}_{\sigma_3} \quad \text{ and } \quad \mu = \underbrace{(24)}_{\mu_1}\underbrace{(13456)}_{\mu_2}\underbrace{(24)}_{\mu_3}
+ \]
+ We first start by converting $\sigma$ into its disjointed form we initiate as follows:
+\[
+\begin{array}{lclclcl}
+    \sigma_3(1) = 3 & \rightarrow & \sigma_2(3) = 3 & \rightarrow & \sigma_1(3) = 1 & \circlearrowleft & 1 \to 1  \text{ fixed }\\
+    \sigma_3(2) = 2 & \rightarrow & \sigma_2(2) = 4 & \rightarrow & \sigma_1(4) = 4 & \circlearrowleft & 2 \to 4 \text{ continued}  \\
+    \sigma_3(4) = 4 & \rightarrow & \sigma_2(4) = 5 & \rightarrow & \sigma_1(5) = 5 & \circlearrowleft & 4 \to 5 \text{ continued}  \\
+    \sigma_3(5) = 5 & \rightarrow & \sigma_2(5) = 1 & \rightarrow & \sigma_1(1) = 3 & \circlearrowleft & 5 \to 3 \text{ continued}  \\
+    \sigma_3(3) = 1 & \rightarrow & \sigma_2(1) = 2 & \rightarrow & \sigma_1(2) = 2 & \circlearrowleft & 3 \to 2 \text{ ends loop}  \\
+\end{array}
+ \]
+ \[
+ \therefore 2 \to 4 \to 5 \to 3 \to 2 = (2453) = (3245) \text{ orderly right to left}
+ \]
+ Now we convert $\mu$ into its disjointed form:
+ \[
+\begin{array}{lclclcl}
+    \mu_3(1) = 1 & \rightarrow & \mu_2(1) = 3 & \rightarrow & \mu_1(3) = 3 & \circlearrowleft & 1 \to 3  \text{ Continued }\\
+    \mu_3(3) = 3 & \rightarrow & \mu_2(3) = 3 & \rightarrow & \mu_1(3) = 1 & \circlearrowleft & 3 \to 1  \text{ ends loop }\\
+    \mu_3(2) = 4 & \rightarrow & \mu_2(4) = 5 & \rightarrow & \mu_1(5) = 5 & \circlearrowleft & 2 \to 5  \text{ Continued }\\
+    \mu_3(5) = 5 & \rightarrow & \mu_2(5) = 6 & \rightarrow & \mu_1(6) = 6 & \circlearrowleft & 5 \to 6  \text{ Continued }\\
+    \mu_3(6) = 6 & \rightarrow & \mu_2(6) = 1 & \rightarrow & \mu_1(1) = 4 & \circlearrowleft & 6 \to 4  \text{ Continued }\\
+    \mu_3(4) = 2 & \rightarrow & \mu_2(2) = 2 & \rightarrow & \mu_1(2) = 4 & \circlearrowleft & 4 \to 2  \text{ ends loop }\\
+\end{array}
+ \]
+ \[
+ \therefore  1 \to 3 \to 1 = (13) \text{ and } 2 \to 5 \to 6\to 4 \to 2 = (2564) \Rightarrow (13)(2564)
+ \]
+ We can see from the disjointed form for both $\mu$ and $\sigma$ we notice that $\sigma$ formed a odd number of transpositions while $\mu$ formed an even number of transposition. And this can be reflected by how the middle permutation resulted in. 
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.20]
+Let $\alpha$ and $\beta$ belong to $S_n$. Prove that $\beta\alpha\beta^{-1}$ and $\alpha$ both even or both odd.    
+\begin{proof}
+From Problem 5.12 and an argument similar to 5.19, we can show that $\beta\alpha\beta^{-1}$ has a product that adds up to $2r + s$ with $r$ the total product for $\beta$ and $s$ the total product for $\alpha$. Then notice that $2r$ is always even regardless on the parity from $r$. So $2r+s$ is strictly dependent on the parity for $\alpha$. That is to say if $\alpha$ is odd then $s$ is odd, then $2r+s$ is odd so $\beta\alpha\beta^{-1}$ is also odd; and if $\alpha$ is even then $s$ is even, then $2r + s$ is even so $\beta\alpha\beta^{-1}$ is even.      
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 5.40]
+Let $\beta = (123)(145)$. Write $\beta^{99}$ in disjoint cycle form.  
+\begin{proof}
+Consider $\beta = (123)(145)$, and we want to obtain $\beta^{99}$, first we form the disjointed form for $(123)(145)$  which by theorem 22, this is $(14523)$, hence we want to obtain $(14523)^{99}$. Here notice that the disjointed form for $\beta$ has length $5$, so by the euclidean algorithm, we solve: $$99 = 5\cdot 19 + 4 \quad (mod\ 5) \iff 99 \equiv 4 \quad (mod 5)$$
+Hence we know that $(14523)^4 = \beta^{-1}$ so we can now easily compute $\beta$ which is $(13245) = \beta$.
+\end{proof}
+\end{exer}
+
+
+\end{assignment}

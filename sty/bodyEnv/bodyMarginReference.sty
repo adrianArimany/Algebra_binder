@@ -1,0 +1,35 @@
+% sty/bodyEnv/bodyMarginReference.sty
+\ProvidesPackage{sty/bodyEnv/bodyMarginReference}
+
+\RequirePackage{marginnote}
+
+\makeatletter
+
+\setlength{\marginparpush}{8pt}
+
+\newcounter{mnotecounter}
+
+\newlength{\mnoterefshift}
+\setlength{\mnoterefshift}{0.8cm}
+
+% \mref{...}            -> numbered marker (default)
+% \mref[*]{...}         -> uses *
+% \mref[\dagger]{...}   -> uses dagger
+\newcommand{\mref}[2][]{%
+  \refstepcounter{mnotecounter}%
+  \def\mref@mark{\themnotecounter}%
+  \def\mref@opt{#1}%
+  \ifx\mref@opt\@empty\else
+    \def\mref@mark{#1}%
+  \fi
+  \textsuperscript{\mref@mark}%
+  \marginpar{%
+    \hspace*{\mnoterefshift}%
+    \parbox{\marginparwidth}{%
+      \raggedright\footnotesize\sloppy
+      \textsuperscript{\mref@mark}\,#2%
+    }%
+  }%
+}
+
+\makeatother

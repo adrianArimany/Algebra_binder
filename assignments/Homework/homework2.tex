@@ -1,0 +1,250 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Homework 2},
+  duedate={17-February-2026},
+  toc=false,
+  toctitle={This appears on the Table of contents.},
+  exlist=false
+]
+
+\begin{exer}[Problem 1.23]
+Let $n$ be a positive integer greater than or equal to $3$. Prove that $D_n$ contains $R_{180}$ if and only if $n$ is even.
+\begin{proof}
+Consider some positive integer $n \geq 3$. To prove the forward implication,
+let the group Rotation by $180^{\circ} = \frac{2\pi}{n}$, $\langle r \ : \ r^2 = e\rangle = R_{180}  \preccurlyeq D_{n\geq 3} =\langle r,s \ : \ r^n = e,\ s^2 = e,\ srs = r^{-1} \rangle$ which is the Dihedral group. To prove that $n$ is even follows directly from a parity argument. 
+\begin{itemize}
+    \item If $n = 2k$, then $n \mid 2k$, so every rotation $r^{\frac{n}{2}} = e$   
+    \item If $n = 2k +1$, then $2k \nmid n$, so every rotation $r^{\frac{n}{2}} \neq e$. 
+\end{itemize}
+This would indicate that only even rotations (or half rotations) have order $2$ in $D_n$.\\
+
+To prove the reverse implication is we assume that $n$ is even and we aim to show that $R_{180} \preccurlyeq D_{n\geq 3}$. Define a rotation $\rho = r^{\frac{n}{2}}$, and consider 
+\[
+\rho \cdot \rho = \rho^2 = r^{(\frac{n}{2})^2} = r^{\frac{n\cdot 2}{2}} = r^{n} = e \quad \quad \text{Since } r^n = e \quad \text{is a condition from } D_n
+\]
+Then $\langle \rho \rangle$ is a subgroup of order $2$ found in $D_n$, and given that $\rho^2 = e$ we have that $\langle \rho \rangle \cong R_{180}$. Hence  $R_{180} \preccurlyeq D_n$.
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 1.24]
+If $F = s$ is a reflection in the dihedral group $D_n$, find all elements $X$ in $D_n$ such that $X^2 = s$; and also all elements $X$ in $D_n$ such that $X^3 = s$.
+\begin{proof}
+Recall that $D_n = \{r,s \ : \ r^n = e,\ s^2 =e,\ srs = r^{-1}\}$, but when checking for elements it can be expressed as $D_n = \{r^k, sr^k \ : \ 0 \leq k < n \}$, so we have to find every combination from $\{r^k, sr^k\}$ which have an order 2, and order 3\\
+
+For order $2$: $X^2$
+\begin{itemize}
+    \item Consider every Rotation of the form $X = r^k$ that is
+    \[
+    X^2 = (r^k)^2 = r^{2k} \quad \quad \text{If we want } X^2 = s \quad \text{then }
+    \]
+    \[
+    r^{2k} = s^1  \iff r^{2k}s^{-1} = e 
+    \]
+    Notice that in $D_n$ there is no operation or $k$ that would allow $r^{2k}s^{-1} = e$, because even with $n\mid 2k$  we would have that $r^{2k} = e$, but there is no solution that would satisfy $s^{-1} = e$. Hence the elements for $r^{2k} = s$ is empty.
+    \item Consider every flip-rotation of the form $X = sr^k$ that is
+    \[
+    x^2 = (sr^k)^2 = s^2r^{2k} \quad \quad \text{If we want } X^2 = s \quad \text{then }
+    \]
+    \[
+    s^2r^{2k} = s^1 \iff s^{1}r^{2k} = e 
+    \]
+    The same problem with the rotation $r^k$, as there is no operation in $D_n$ or a $k$ such that $s^{1}r^{2k} = e$, and again even if $n\mid 2k$, we can not solve for $s^{1} = e$. Hence $s^2r^{2k} = e$ is empty. 
+\end{itemize}
+Since we couldn't find a solution in either case we conclude that $X^2 = s$ is an empty set.\\
+
+For order $3$: $X^3$
+\begin{itemize}
+    \item Consider every rotation of the form $X = r^k$ that is
+    \[
+    X^3 = (r^k)^3 = r^{3k} \quad \quad \text{If we want } X^3 = s \quad \text{then }
+    \]
+    \[
+    r^{3k} = s \iff r^{3k}s^{-1} = e
+    \]
+    The same problem as with order 2, because there is no operation in $D_n$ or even a $k$ that would satisfy $r^{3k}s^{-1} = e$. Again, even if $n\mid 3k$, then $r^{3k} = e$, but we have the same situation as before where we can't solve $s^{-1} = e$, hence $r^{3k} = s$ has no solution.
+    \item  Consider every flip-rotation of the form $X = sr^k$ that is
+    \[
+    X^3 = (sr^k)^3 = s^3r^{3k} \quad \quad \text{If we want } X^3 = s \quad \text{then }
+    \]
+    \[
+    s^3r^{3k} = s^1 \iff s^{2}r^{3k} = e \quad \text{ or } \quad  s^{3}r^{3k}s^{-1} = e
+    \]
+    Notice that unlike before, $s^{2} = e$ and so there is a solution only when $n \mid 3k$. So we have that $X = s$. 
+\end{itemize}
+Hence the elements that have a solution for the set
+\[
+\{ X \in D_n \ : \ X^3 = s \} = \{s\}
+\]
+\end{proof}
+\end{exer}
+
+
+\begin{exer}[Problem 2.40]
+Suppose that $s_1$ and $s_2$ are distinct reflections in a dihedral group $D_n$ such that $s_1s_2 = s_2s_1$. Prove that $s_1s_2 = R_{180}$.
+\begin{proof}
+Consider $s_1 \in D_n$ and $s_2 \in D_n$ with $D_n = \langle r,s \ : \ r^n = e,\ s^2 = e,\ srs = r^{-1} \rangle$ being the dihedral group. And suppose that $s_1s_2 = s_2s_1$ are commutative and distinct. To prove that $s_1s_2 = R_{180}$. We will initiate by following Problem 1.24, where we are using the fact that every element $X$ in $D_n$, has to satisfy
+\[
+D_n = \{r^k, sr^k  \ : 0 \leq k < n\ \} 
+\]
+Because $s_1$ and $s_2$ are distinct reflections, then consider the reflections $s_1 = sr^a$ and $s_2 =sr^b$. Let $ s_1s_2 = X \preccurlyeq D_n$, that is 
+\begin{proofarray}
+s_1s_2 &=& (sr^a)(sr^b) & \text{By construction of } X\\
+& = & s(r^as)r^b & \text{Associativity}\\
+\multicolumn{4}{l}{\text{using the following Identity} $r^as = sr^{-a}$ }\\
+& = & s(sr^{-a})r^b & \text{Direct substitution}\\
+& = & s^2r^{b-a} & \text{Associativity}\\
+& = & er^{b-a} & \text{property from } D_n \text{ that is } s^2 = e\\ 
+\end{proofarray}
+We have arrived that $X = s_1s_2 = r^{b-a}$. Since we where told that $s_1$ and $s_2$ are commutative, then $s_2s_1 = r^{a-b}$, so notice that if
+\[
+r^{b-a} = r^{a-b} \iff r^{b-a} r^{-(a-b)} = r^{2b-2a} = r^{2(b-a)} = e 
+\]
+Because $r$ has order $n$, then $n\mid 2(b-a)$. However $s_1$ is distinct from $s_2$ i.e. $(s_1\neq s_2)$, then $n \nmid (b-a)$, otherwise we arrive at $s_1 = s_2$ a contradiction. This means that $b-a =k$, with $k$ a non-zero integer. Therefore $n\mid 2(k)$ is divisible only when $n$ is even, hence $X = s_1s_2 = r^{k} = r^{\frac{n}{2}}$. So returning to Problem 1.23, we had shown that $\langle r \ : \ r^2 = e\rangle = R_{180} \preccurlyeq D_{n\geq 3}$ only whenever $n$ is even. This tells us that $s_1s_2 = X = R_{180}$, here we have shown that $s_1s_2$ and $R_{180}$ are the same subgroup with $D_n$. 
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 2.41]
+Let $r$ be any fixed rotation and $s$ any fixed reflection in a dihedral group. Prove that $r^ksr^k = s$.
+\begin{proof}
+Let $r$ be a "fixed" rotation and $s$ a "fixed" reflection from $D_n = \langle s,r \ : \ r^n = e,\ s^2 = e,\ srs = r^{-1}\rangle$. Because we know that $srs = r^{-1}$ and similarly, $s^2 = e $ implies that $s^{-1} = s$, then we would have that $sr = r^{-1}s$. To prove by induction that $sr^k = r^{-k}s$.\footnote{It took me a long time to understand why we would need to fix $s$ and $r$, but here is my reasoning as to why these are fixed. If we don't fix them we can't apply the induction to show that $sr^{k} = r^{-k}s$. That is because we apply the induction onto one element (in this case we do it for $r$), so we need $s$ to be fixed; moreover, the induction only guarantees that it works for a finite set. So by fixing the rotation, we are actually saying, we are fixing the number of possible rotations, hence a finite set of rotations. In summary, $r^ksr^k = s$, only when we have a finite number of rotations under one single reflection. Because in general, that result is not always satisfied in $D_n$} With $s$ fixed, we induce $r^k$.
+
+\begin{itemize}
+    \item[Base case:] For $k = 1$, we know is satisfied as constructed prior to this. 
+    \item[Induction:] Assume $k$, then $sr^k = r^{-k}s$. To show for $k+1$ then $sr^{k+1} = sr^kr = r^{-(k+1)}s$. Only consider the left hand side: $(sr^k)r$, by the inductive step, $r^{-k}(sr)$, by the base step, $r^{-k}r^{-1}s = r^{-k-1}s$ which the same as from the right hand side. Hence $sr^{k+1} = r^{-k-1}s$  
+\end{itemize}
+
+Thus we conclude by induction on $r^k$ that $sr^{k} = r^{-k}s$, we finish by applying the inverse of $r^{-k}$ from the leftmost, and we would obtain $r^{k}sr^{k} = (r^{k}r^{-k})s = s$. Hence we conclude that $r^ksr^k = s$ whenever $r$ is fixed up to some integer $k$ with just one reflection $s$.  
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 3.30]
+Prove that for every subgroup of $D_n$, either every number of the subgroup is a rotation or exactly half of the members are rotations.    
+\begin{proof}
+We know that $D_n = \langle r\rangle $$\uplus$\footnote{This sign indicates that the union is disjointed, since these elements form a partition on the group $D_n$}$ \langle sr \rangle$. Now let any subgroup $H\preccurlyeq D_n$, what we are proving is using directly the fact that $\langle r \rangle$ and $\langle sr \rangle$ have a partition on $D_n$, so by consider each case separately we should arrive at the required conclusion.\\
+
+Consider the set $R = H \cap \langle r \rangle$. We have two cases to consider.
+\begin{itemize}
+    \item[Case 1:] $H$ has no reflections, hence $R = \langle r\rangle$, this is the scenario where the subgroup only has rotations.
+    \item[Case 2:] Suppose that $H$ has at least one reflection $s$. Consider any element $x \in H$, with $x$ distinct from $s$, by the closure from $H$ we can observe that $sx \in H$. We have two possible elements that $x$ can be:
+    \begin{itemize}
+        \item If $x_{\text{rot}}$ is a rotation, then $sx_{\text{rot}}$ is a reflection.  
+        \item If $x_{\text{ref}}$ a reflection, then $sx_{\text{ref}}$ which is a rotation. 
+    \end{itemize}
+\end{itemize}
+Thus case 1 guarantees that $H$ is only rotations, or exclusively just half of the elements in $H$ are rotations.
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 3.31]
+Let $H$ be a subgroup of $D_n$ of odd order. Prove that every member of $H$ is a rotation.
+\begin{proof}
+Consider any subgroup $H \preccurlyeq D_n$ such that $|H| = 2k + 1$ with $k \in \mathbb{N}$. The restriction indicates that $2 \nmid |H|$, so from Problem 3.30, $H$ has two possible cases:
+\begin{itemize}
+    \item[Case 1:] Every element in $H$ is a rotation.
+    \item[Case 2:] Exactly half of the elements in $H$ are a rotation. 
+\end{itemize}
+Assume by contradiction that case 2 holds. This would mean that $|H| = 2m$, for some integer $m$, this is represented since half of the elements are rotation and the other half are reflections.  Nevertheless this would indicate that $2 \mid |H|$, which is a contradiction. Thus the only feasible case would be case 1, that is $H$ only has elements that are rotations. 
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 4.11]
+Let $G$ be a group and let $a \in G$. Prove that $\langle a^{-1} \rangle = \langle a \rangle$.
+\begin{proof}
+Let $G$ be a group with element $a \in G$. To prove that $\langle a^{-1} \rangle = \langle a \rangle$, however do notice that $G$ can be an infinite group, so there is NO guaranteed that $|a| = n$.\\
+
+Nevertheless, by definition
+\[
+\langle a^{-1} \rangle = \{a^{-k} \ : \ k \in \mathbb{Z} \}
+\]
+In set theory and discrete math we have shown that there is a bijection from $\mathbb{Z}^+$ to $\mathbb{Z}^-$, hence the following sets are equal
+\[
+\langle a^{-1} \rangle = \{a^{-k} \ : \ k \in \mathbb{Z} \} = \{a^{k} \ : \ k \in \mathbb{Z} \} = \langle a^1 \rangle
+\]
+Thus $\langle a^{-1} \rangle = \langle a^1 \rangle$
+
+\end{proof}    
+\end{exer}
+
+\begin{exer}[Problem 4.17]
+Let $a$ be a generator of a cyclic group $G$. If $|G| = n$ is odd and $\langle a^6\rangle$ is a proper subgroup of $\langle a \rangle$, determine $|\langle a^6\rangle|$.    
+\begin{proof}
+Let $a$ be a generator of a cyclic group $G$. Suppose that $|G| = 2k + 1$ with $k \in \mathbb{N}$ and also $\langle a^6 \rangle \prec \langle a \rangle$. We aim to show the order for $|\langle a^6 \rangle|$. Remember that by Corollary 9, we know that $|\langle a^k\rangle| = |a^k|$. Additionally $\langle a^6\rangle$ is a proper subgroup from $\langle a\rangle$, then $| a^6 | <_c | a |$. Moreover, since $|G|$ is both finite and odd, then $$| a^6 | <_c | a | \leq_c 2k +1$$
+With the above, we know from Theorem 10 that $|a| = \frac{2k+1}{gcd(2k+1, 1)} = 2k + 1$. With this we can determine that $|a^6| = \frac{2k + 1}{gcd(2k+1, 6)}$. Notice that $gcd(2k+1,6)$, with $6 = 3 \cdot 2 \cdot 1$, then the common divisor of $2k +1$ and $6$ must divide both $2$ and $3$. Nevertheless, $2k+1$ is odd, so $2 \nmid 2k+1$; which mean that the only possible common divisor is 3, in particular notice that
+$$gcd(2k+1, 6) =\begin{cases}
+    3 & \text{ if } 3\mid2k+1\\
+    1 & \text{otherwise}
+\end{cases}  $$
+Hence we would obtain that either $|a^6| = \frac{2k+1}{3}$ whenever $3\mid 2k+1$, or $|a^6| = 2k+1$ whenever $3\nmid 2k+1$. But, given that $| a^6 | <_c |a|$, then it not a valid case that $| a^6| = 2k+1$, since this would mean that $| a^6| =_c |a|$. Therefore the only order for $|a^6|$ is $\frac{2k+1}{3}$.   
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 4.41]
+Determine the subgroup lattice for $\mathbb{Z}_8$. Generalize to $\mathbb{Z}_{p^n}$, where $p$ is a prime and $n$ is some positive integer.
+\begin{proof}
+By the fundamental theorem from cyclic groups, the subgroup lattice for $|\mathbb{Z}_8| = 8$ then $n \mid 8 = \{1,2,4,8\}$ of which these are generated by
+\[
+\{ \underset{\# 1}{\langle e\rangle = \{0\}}, \underset{\# 2}{\langle 4 \rangle = \{0,4\}}, \underset{\# 4}{\langle 2 \rangle = \{0,2,4,6\}},\underset{\# 8}{\langle 1 \rangle = \mathbb{Z}_8} \}
+\]
+Now to generalize to $\mathbb{Z}_{p^n}$ with $p$ a prime and an integer $n \geq 0$. Since $\mathbb{Z}_p^n$ is a cyclic group, we would have that each divisor $d$ and suppose that $|\mathbb{Z}_{p^n}| = m$, then there are $d\mid m$ unique subgroups of order $d$ (Theorem 11). Because $p$ is a prime, then the possible divisors of $p^n$ are $p^0,p^1,\cdots,p^n$, i.e. there are a total of $n+1$ subgroups. So let $k \in \mathbb{N}$ such that any subgroup
+\[
+H_k = \langle p^k \rangle = \{mp^k \quad (\text{mod} \ p^n) \ : \ m\in\mathbb{Z} \} \preccurlyeq \mathbb{Z}_{p^n} \quad \text{ with equality only when } k = n
+\]
+What proceeds is to determine the distinct multiples of $p^k$ that exist with modulo $p^n$. So consider any two indistinguishable mod $p^n$,
+\begin{proofarray}
+   mp^k & \equiv & m'p^k \quad (\text{mod } p^n)& \\
+   p^n& \mid & (m-m')p^k &\text{definition of congruent}\\
+   p^kp^{n-k} & \mid & (m-m')p^k & \text{ by common factor}\\
+   p^{n-k} & \mid & (m-m') & \text{ Cancel out } p^k \text{ since is a positive integer}\\
+   m & \equiv & m' \quad (\text{mod } p^{n-k}) & \text{By definition of congruent} 
+\end{proofarray}
+The final result form above implies repetition from subgroups. Therefore there are only up to $p^{n-k}$ subgroups, so from Theorem 9, $|H_k| = |\langle p^k \rangle | = p^{n-k}$. Moreover, notice that if $m = p^{n-k}$, where remember that $|\mathbb{Z}_{p^n}| = m$, then $p^{n-k}\cdot p^k = p^n \equiv 0 \quad (\text{mod } p^n)$, so the maximal element in the lattice for any subgroup would have this form: $p^{n-k}p^k -p^k = (p^{n-k} - 1)p^k$. After this term, it cycles back to $0$.\\
+
+With the above, we can conclude that any subgroup $H_k$ has the following distinct multiples:
+\[
+H_k = \{0, p^k, 2p^k, \cdots , (p^{n-k} - 1)p^k\}
+\]
+That is equivalent to the following inclusion order:
+\[
+\{0\} = H_n = \langle p^n\rangle \subset H_{n-1} = \langle p^{n-1}\rangle \subset \cdots \subset H_k = \langle p^k \rangle \subset \cdots  \subset H_1 = \langle p \rangle \subset H_0 = \mathbb{Z}_{p^n}
+\]
+\end{proof}
+\end{exer}
+
+\begin{exer}[Problem 4.77]
+Let $a$ be a group element such that $|a| = 48$. For each part, find a divisor $k$ of $48$ such that
+\begin{itemize}
+    \item[a.] $\langle a^{21} \rangle = \langle a^k \rangle$
+    \begin{proof}
+    Remember that $|a^{21}| = \frac{48}{gcd(21,48)}$, evidently $21 = 3\cdot 7$ and $48 = 16\cdot 3 = 2^4 \cdot 3$. Clearly $3$ is in both products, hence $gcd(21,48) = 3$, which result in $|a^{21}| = \frac{48}{3} = 16$.\\
+    
+    Do notice that if $|a^k| = 16$ then we aim to solve for $\frac{48}{gcd(48,k)} = 16$, which we need to look for every $k$ such that $gcd(48,k) = 3$. By the Euclidean algorithm, we aim to find every $0 \leq k < 48$, and since $48 = 2^4 \cdot 3$, then we can simplify to solve for $k = 3m$. That is $gcd(48,3m) = 3 \iff gcd(16,m) = 1$, hence the possible values for $m \in \{1,3,5,7,9,11,13,15\}$ (mod $16$), hence by directly substituting any $m$ within modulo 48, we would obtain the values for $k$:
+    \[
+    k = 3m \in \{3,9, 15,21,27,33,39,45\}  \quad (\text{mod } 48)
+    \]
+    \end{proof}
+    \item[b.] $\langle a^{14} \rangle = \langle a^k \rangle$
+    \begin{proof}
+    Remember that $|a^{14}| = \frac{48}{gcd(14, 48)}$, evidently $14 = 7\cdot 2$ and $48 = 2^4 \cdot 3$, hence $gcd(14,48) = 2$. Which results in $|a^{14}| = \frac{48}{2} = 24$. Now to solve for every $k$.\\
+
+    To solve $\frac{48}{gcd(48,k)} = 24 \iff gcd(48,k) = 2$, which by the Euclidean algorithm, we have to solve every $0 \leq k < 48$. Since $48 = 2^4 \cdot 3$, then $2\mid k$ but $4\nmid k$ and $3\nmid k$, i.e. $m$ is every odd integer that is not divisible by $3$. So $k = 2m$, that is $gcd(48, 2m) = 2 \iff gcd(24, m) = 1$, hence $m \in \{1,5,7,11,13,17,19,23\}$ (mod $24$). By direct substitution on $k = 2m$, we would obtain the possible values for $k$:
+    \[
+    k = 2m \in \{2,10,14,22,26,34,38,46\}
+    \] 
+    \end{proof}
+    \item[c.] $\langle a^{18} \rangle = \langle a^k \rangle$
+    \begin{proof}
+    Remember that $|a^{18}| = \frac{48}{gcd(18,48)}$, evidently $18 = 3^2 \cdot 2 = 3 \cdot 6$ and $48 = 2^4 \cdot 3 = 6\cdot 2^3$, hence $gcd(18,48) = 6$. Which results in $|a^{18}| = \frac{48}{6} = 8$. Now to solve for every $k$.\\
+
+    To solve $\frac{48}{gcd(48,k)} = 8 \iff gcd(48,k) = 6$, which by the Euclidean algorithm, we have to solve every $0 \leq k < 48$. Since $48 = 6\cdot 2^3$, then $k = 6m$, i.e. $m$ is odd. That is $gcd(48, 6m) = 6 \iff gcd(8,m) = 1$,  hence $m \in \{1,3,5,7\}$ (mod $8$), by direct substitution on $k=6m$, we would obtain the possible values for $k$:
+    \[
+    k = 6m \in \{6,18,30,42\} \quad (\text{mod } 48)
+    \]    
+    \end{proof}
+\end{itemize}    
+\end{exer}
+
+
+
+
+\end{assignment}

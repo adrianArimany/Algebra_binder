@@ -1,0 +1,54 @@
+\ProvidesPackage{sty/docEnv/envProof}
+
+% Optional: if comment.sty exists, use it to exclude proofs cleanly
+\IfFileExists{comment.sty}{\RequirePackage{comment}}{}
+
+% -----------------------------
+% Boolean: compile demostracion?
+% Default: true
+% User can put in main preamble:
+%   \compiledemostracionfalse
+% to disable the environment content.
+% -----------------------------
+\newif\ifcompiledemostracion
+\compiledemostraciontrue
+
+\newcommand{\CompileDemostracionOn}{\compiledemostraciontrue}
+\newcommand{\CompileDemostracionOff}{\compiledemostracionfalse}
+
+% If comment package is available, define exclusion environment safely
+\providecommand{\excludecomment}[1]{%
+  % Fallback if comment.sty isn't loaded: define as a gobble environment
+  \expandafter\newenvironment\csname #1\endcsname{\ignorespaces}{\ignorespaces}%
+}
+
+% -----------------------------
+% Base demostracion environment
+% -----------------------------
+\ifcompiledemostracion
+\NewDocumentEnvironment{demostracion}{O{Demostración}}{%
+  \par\noindent\textbf{#1.}\par\noindent
+}{%
+  \hfill$\blacksquare$\par\vspace{1em}%
+}
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{%
+  \par\pushQED{\qed}%
+  \normalfont
+  \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries #1.]%
+  \mbox{}%
+  \par\noindent\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\else
+  % Exclude content entirely when disabled
+  \excludecomment{demostracion, proof}
+\fi
+
+
+
+

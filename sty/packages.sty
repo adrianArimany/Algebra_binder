@@ -1,0 +1,54 @@
+\ProvidesPackage{sty/packages}
+
+%Closer to the top means higher priority in compiler.
+
+% Engine/encoding + fonts (early)
+\RequirePackage{iftex}
+\ifPDFTeX
+  \RequirePackage[utf8]{inputenc} %In case you switch from PDFTeXcompiler.
+\fi
+\RequirePackage{lmodern}
+
+% Core math + graphics (early)
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{graphicx}
+
+%Additioanl Macro
+\RequirePackage{xkeyval}
+
+\RequirePackage{booktabs}
+% Color (before tikz/tcolorbox)
+\RequirePackage{xcolor}
+\RequirePackage{float}
+
+% Layout + headers + section formatting (before hyperref)
+\RequirePackage{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+
+% Local layout utilities / lists (still before hyperref)
+\RequirePackage{changepage}
+\RequirePackage{marginnote}
+\RequirePackage{multicol}
+\RequirePackage{enumitem}
+
+% Programming utilities
+\RequirePackage{xparse,array}
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+\RequirePackage{verbatim}
+
+% Drawing + box frameworks
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+\RequirePackage{tikzpagenodes}
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{mdframed}
+
+% Hyperlinks (late)
+\RequirePackage{hyperref}
+
+% PDF inclusion (after hyperref is fine)
+\RequirePackage{pdfpages}

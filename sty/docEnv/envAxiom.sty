@@ -1,0 +1,27 @@
+\ProvidesPackage{sty/docEnv/envAxiom}
+\makeatletter
+
+\newcounter{axiomprefixcounter}
+
+% Macro to build label and title
+\newcommand{\axiomprefixlabel}{}  % ZF0, PA1, etc.
+\newcommand{\axiomprefixname}{}   % ZF, PA
+
+\newcommand{\namedref}[2]{\expandafter\gdef\csname refname@#1\endcsname{#2}}
+\newcommand{\getrefname}[1]{\csname refname@#1\endcsname}
+
+\newcommand{\axlist}{} 
+%axiom Environment
+\newenvironment{axiomprefix}[3]{%
+  \def\axiomprefixname{#1}%
+  \stepcounter{axiomprefixcounter}%
+  \edef\axiomprefixlabel{\axiomprefixname\arabic{axiomprefixcounter}}%
+  \def\axiomtitle{Axioma~\axiomprefixlabel\ (\textit{#2})}%
+  \namedref{ax:#3}{\axiomtitle}%
+  \gappto\axlist{\noindent\hyperref[ax:#3]{\axiomtitle}\par}%
+  \begin{quote}
+  \textbf{\axiomtitle}\label{ax:#3}\par
+}{%
+  \end{quote}\vspace{1em}
+}
+\makeatother

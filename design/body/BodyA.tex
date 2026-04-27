@@ -1,0 +1,20 @@
+% design/body/BodyA.tex
+\makeatletter
+
+\newcommand{\useBodyAactivate}{%
+  % If you want BodyA to be "no change", you can leave it empty instead.
+  % Otherwise set your standard geometry here:
+  \newgeometry{%
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.5cm,
+    right=2.5cm,
+    headsep=0.8cm,
+    footskip=1.0cm
+  }%
+  \normalmarginpar
+}
+
+\newcommand{\useBodyAdeactivate}{}
+
+\makeatother

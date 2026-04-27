@@ -1,0 +1,26 @@
+% design/header/HeaderA.tex
+%
+% This is the base header:
+%       Name:                Course:
+%       Due date:            Carnet:
+%       ----------------------------
+%                   Title
+%
+% design/header/HeaderA.tex
+\makeatletter
+
+\@ifundefined{useHeaderA}{%
+  \newcommand{\useHeaderA}{%
+    % manual header block
+    \noindent\textbf{Name:} \@studentname\hfill\textbf{Course:} \@course\par
+    \noindent\textbf{Due date:} \@duedate\hfill\textbf{Carnet:} \@carnet\par
+    \vspace{0.5em}%
+    \noindent\rule{\textwidth}{0.5pt}\par
+    \ifx\@assignmenttitle\@empty\else
+      \begin{center}\textbf{\Large \@assignmenttitle}\end{center}
+      \vspace{1em}%
+    \fi
+  }%
+}{}%
+
+\makeatother

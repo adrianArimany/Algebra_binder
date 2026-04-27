@@ -1,0 +1,246 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Homework 4},
+  duedate={\today},
+  toc=false,
+  toctitle={This appears on the Table of contents.},
+  exlist=false
+]
+
+\begin{exer}[Problem 6.12]
+Let $G$ be a group. Prove that the mapping $\alpha(g) = g^{-1}$ for all $g$ in $G$ is an automorphism if and only if $G$ is abelian.
+\begin{proof}
+ Let $G$ be a group. $(\Rightarrow)$ Suppose that the mapping $\alpha(g) = g^{-1}$ for all $g \in G$, is an automorphism. So consider, $a,b \in G$  
+ \[
+ \alpha(ab) = (ab)^{-1} = b^{-1}a^{-1}  
+ \]
+ \[
+ \alpha(a)\alpha(b) = a^{-1}b^{-1}
+ \]
+ Since $\alpha$ has homomorphism, then
+ \[
+ \alpha(ab) = \alpha(a)\alpha(b) \iff b^{-1}a^{-1} = a^{-1}b^{-1}
+ \]
+ Hence for all $a,b \in G$, $G$ must be abelian.\\
+
+ $(\Leftarrow)$ Suppose now that $G$ is an abelian group, so consider the map $(\alpha, G,G)$ defined by $\alpha(g) = g^{-1}$, to show that $\alpha$ is an automorphism. So for homomorphism, consider $a,b \in G$, then 
+ \[\alpha(ab) = (ab)^{-1} = (ba)^{-1} = a^{-1}b^{-1} = \alpha(a)\alpha(b)\]
+ To show that $\alpha$ is bijective, we are proving using the identity map. That is consider $a\in G$ such that
+ \[\alpha \circ \alpha(a) = \alpha(\alpha(a)) = \alpha(a^{-1}) = (a^{-1})^{-1} = a\]
+ Hence $\alpha \circ \alpha = id_G$ and since every identity map is bijective then $\alpha$ must be bijective.\\ 
+\end{proof}    
+\end{exer}
+
+
+\begin{exer}[Problem 6.18]
+If a group $G$ is isomorphic to $H$, prove that \Aut{G} is also isomorphic to \Aut{H}. 
+\begin{proof}
+Consider the groups $G$ and $H$, with $G \cong H$, so there exists a function $(\varphi, G,H)$ such that is bijective and homomorphic. Hence because $\varphi$ is bijective, then the inverse exists and the identity map exists for both $G$ and $H$, that is a map that goes from $(f, G, G)$ or $(g, H,H)$; because we are proving isomorphism for the Automorphisms, we only need to work with either $f$ or $g$, this proof will use $f$. So consider the following map,
+\[
+(F, H,H) = (\varphi^{-1} \circ f \circ \varphi) := (H\to G) \to (G\to G) \to (G \to H)
+\]
+Because $\varphi^{-1},f,\varphi$ are all bijective, then the composition preserves the bijection for $F$. We finish by showing that $F$ is homomorphic. So consider,
+\[
+F(f_1\circ f_2) = \varphi^{-1} \circ (f_1 \circ f_2) \circ \varphi
+\]
+By associativity in the composition,
+\[
+F(f_1\circ f_2) = (\varphi^{-1} \circ f_1) \circ (f_2 \circ \varphi) = F(f_1)\circ F(f_2)
+\]
+Hence $F$ is homomorphic, which means that \Aut{H} $\cong$ \Aut{G}. As a further observation, we could equivalently had used the map $(F, G,G) = (\varphi \circ g \circ \varphi^{-1})$, and we would have arrived that \Aut{G} $\cong$ \Aut{H}. 
+\end{proof}    
+\end{exer}
+
+\begin{exer}[Problem 6.20]
+For any Group $G$ and inner automorphism $\phi_a$ of $G$, prove that $|\phi_a| \mid ord(a)$\footnote{In the textbook is written as $|\phi_a| = ord(a)$, but this is not always true, so Mario suggested a division.}.
+\begin{proof}
+Let $g\in G$ be a group with inner automorphism $\phi_a$. Suppose that the $ord(a) = n$, if we know that 
+\[
+\phi_a(g) = aga^{-1} \text{ then } \phi_a^{2}(g) = \phi_a(\phi_a(g)) = \phi_a(aga^{-1}) = a(aga^{-1})a^{-1} = a^2ga^{-1}
+\]
+Hence repeating this process unto n times, we would obtain that
+\[
+\phi_a^n(g) = \phi_{a}(a^{n-1}ga^{-(n+1)}) = a^nga^{-n}
+\]
+Since we said that $ord(a) = n$ that is $a^n = e$, we then conclude that
+\[
+\phi_a^n(g) = ege = g \text{ in other words } \phi_a^n(g) = id_G \text{ for all } g \in G
+\]
+So we can conclude that using Theorem 11,
+\[
+\text{If }\phi_a^{ord(a)} = \phi_a^n = id_G \text{ then } |\phi_a| \mid ord(a)  
+\]
+\end{proof}    
+\end{exer}
+
+\begin{exer}[Problem 6.35]
+Find an isomorphism from $\mathbb{Z}_{10}$ to $\mathbb{U}(11)$.
+\begin{proof}[Solution to 6.35]
+Remember that $\langle 1 \rangle$ generates $\mathbb{Z}_{10}$. Meanwhile since $\mathbb{U}(11)$ are all the relative prime numbers to 11, then $\mathbb{U}(11) = \{1,2,3,4,5,6,7,8,9,10\}$. Hence by Fermat Little Theorem, since $11$ is prime and $2$ is not a multiple of 11, then 
+$2^{11-1} = 2^{10} \equiv 1 \quad (mod\ 11)$. In other words, $\langle 2 \rangle$ generates $\mathbb{U}(11)$. Hence both $\mathbb{U}(11)$ and $\mathbb{Z}_{10}$ are two  cyclic groups of the same order, which by a prior theorem, $\mathbb{Z}_{10} \cong \mathbb{U}(11)$ 
+\end{proof}    
+\end{exer}
+
+\begin{exer}[Problem 6.47]
+Let $G$ be a group and let the element $g \in G$. If $z \in \mathbf{Z}(G)$, show that the inner automorphism  induced by $g$ is the same as the inner automorphism induced by $zg$ (that is, the mappings $\phi_g$ and $\phi_{zg}$ are equal).
+\begin{proof}
+Let $g \in G$ be a group and $z \in \mathbf{Z}(G)$ be the center of $G$, we aim to show that the maps $\phi_g$ and $\phi_{zg}$ have the same images. That is to say, consider $x \in G$, and suppose that 
+\begin{proofarray}
+    \phi_g(x) = \phi_{zg}(x) & \Rightarrow & gxg^{-1} = (zg)x(zg)^{-1} & \\
+    & & gxg^{-1} = (zg)x(g^{-1}z^{-1}) & \text{Shoe sucks property}\\
+    &  & gxg^{-1} = z\phi_g(x)z^{-1} & \\
+    &  & \phi_g = \phi_{zg} & \text{For every } x \in G\\
+\end{proofarray}
+\end{proof}    
+\end{exer}
+
+
+
+\begin{exer}[Problem 6.49]
+Suppose that $g$ and $h$ induce the same inner automorphism of  a group $G$. Prove that $h^{-1}g \in \mathbf{Z}(G)$. Combined this exercise with the previous one (i.e. Problem 6.47) to create a single if and only if theorem.
+\begin{proof}
+Let $g,h$ induce the same inner automorphism of a group $G$. To show $h^{-1}g \in \mathbf{Z}(G)$ is the reverse implication from problem 6.47, following that line of reasoning, consider $x \in G$ and suppose that 
+\begin{proofarray}
+    \phi_g  = \phi_h & \Rightarrow &  gxg^{-1} = hxh^{-1} & \\
+    & & h^{-1}gxg^{-1} = h^{-1}hxh^{-1} & \text{ Applied } h^{-1} \text{ on the left most}\\
+    & & h^{-1}gxg^{-1}g = xh^{-1}g & \text{ Applied } g \text{ on the right most}\\
+    & & h^{-1}gx = xh^{-1}g & \text{ For every } x\in G
+\end{proofarray}
+Hence the element $h^{-1}g \in G$ commutes with every other element in $G$, therefore, $h^{-1}g \in \mathbf{Z}(G)$.\\
+
+Combining this result with the the previous exercise, we can then conclude that
+\[
+\phi_g = \phi_h \iff h^{-1}g \in \mathbf{Z}(G)
+\]
+In plain english: Two elements induce the same inner automorphism if and only if they differ by a central element
+\end{proof}    
+\end{exer}
+
+\begin{exer}[Problem 6.62]
+In \Aut{Z_9}, let $\alpha_i$ denote the automorphism that sends 1 to $i$, where gcd$(i,9) = 1$. Write $\alpha_5$ and $\alpha_8$ as permutations of $\{0,1,2\cdots,8\}$ in disjoint cycle form. [An example would be $\alpha_2 = (0)(124875)(36)$].
+\begin{proof}[Solution for 6.62]
+So consider the \Aut{Z_9} with the description described in the problem. We are tasked to obtain the disjointed cycle form for $\alpha_5$ and $\alpha_8$. So below I obtained the tables produced by evaluating
+\[
+\alpha_i(n) = i \cdot n \quad (mod\ 9)
+\]
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|c}
+            $n$ & $5n$ $(mod\ 9)$   \\
+             \hline
+             $0$ & $0$\\
+             $1$ & $5$\\
+             $2$ & $1$\\
+             $3$ & $6$\\
+             $4$ & $2$\\
+             $5$ & $7$\\
+             $6$ & $3$\\
+             $7$ & $8$\\
+             $8$ & $4$\\
+        \end{tabular}
+        \caption{Results for $5n \quad (mod\ 9)$}
+    \end{table}
+    \[
+    \begin{array}{rcl}
+         0 & \to & 0  \\
+         \hline
+         1 & \to & 5\\
+         5 & \to & 7\\
+         7 & \to & 8\\
+         8 & \to & 4\\
+         4 & \to & 2 \\
+         2 & \to & 1 \\
+         \hline
+         3 & \to & 6\\
+         6 & \to & 3\\
+    \end{array}
+    \]
+    \[
+    \therefore \alpha_5 = (0)(157842)(36) = (157842)(36) 
+    \]
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|c}
+            $n$ & $8n$ $(mod\ 9)$   \\
+             \hline
+             $0$ & $0$\\
+             $1$ & $8$\\
+             $2$ & $7$\\
+             $3$ & $6$\\
+             $4$ & $5$\\
+             $5$ & $4$\\
+             $6$ & $3$\\
+             $7$ & $2$\\
+             $8$ & $1$\\
+        \end{tabular}
+        \caption{Results for $\alpha_8$}
+    \end{table}
+    \[
+    \begin{array}{rcl}
+         0 & \to & 0  \\
+         \hline
+         1 & \to & 8\\
+         8 & \to & 1\\
+         \hline
+         2 & \to & 7\\
+         7 & \to & 2\\
+         \hline
+         3 & \to & 6 \\
+         6 & \to & 3 \\
+         \hline
+         4 & \to & 5\\
+         5 & \to & 4\\
+    \end{array}
+    \]
+    \[
+    \therefore \alpha_8 = (0)(18)(27)(36)(45) = (18)(27)(36)(45)
+    \]
+\end{proof}    
+\end{exer}
+
+
+
+
+\begin{quote}
+    Additional Exercises to do:
+\end{quote}
+
+
+\begin{exer}[]
+    Show that if $(\varphi,\mathbb{C}, \mathbb{C})$ defined by $\varphi(a+bi) = a - bi$ is also preserved under the group $(\mathbb{C}, \times)$.
+    \begin{proof}
+    Let the map $(\varphi,\mathbb{C}, \mathbb{C})$ define by $\varphi(z) = \Bar{z}$\footnote{This is equivalent to $\varphi(a+bi) = a-bi$} with $z\in \mathbb{C}$, in class we already shown this map is bijective. Hence we are only left to show that $\varphi$ preserves the operation. So consider $z,w \in \mathbb{C}$, then
+    \begin{proofarray}
+        \varphi(z\cdot w) &=& \overline{z \cdot w} & \\
+        & = & \Bar{z}\cdot\Bar{w} & \text{By the distributivity over the product} \\
+        & = & \varphi(z)\cdot \varphi(w)\\ 
+    \end{proofarray}
+    Hence we conclude that $\varphi$ is an automorphism over $(\mathbb{C}, \times)$.
+    \end{proof}
+\end{exer}
+
+\begin{quote}
+    For the following let $G$ and $H$ groups and $(\varphi, G, H)$ isomorphism.
+\end{quote}
+
+\begin{exer}[Theorem 25 e)]
+    Show that if $J\preccurlyeq H$ then $\varphi^{-1}[J]\preccurlyeq G$ 
+    \begin{proof}
+    Let $J \preccurlyeq H$ and we know that $\varphi^{-1}$ is isomorphic, so by apply the result from Theorem 25 $d)$ to $\varphi^{-1}$ which results in $\varphi^{-1}[J]\preccurlyeq G$.    
+    \end{proof}
+\end{exer}
+
+\begin{exer}[Theorem 25 f)]
+    Prove that $\varphi(Z(G)) = Z(H)$.
+    \begin{proof}
+    Proof by double containment. Let $g \in Z(G)$, then $gx=xg$, applying $\varphi$ we obtained that $\varphi(gx) = \varphi(xg)$, i.e  $\varphi(g) \in \varphi(Z(G))$, due to homomorphism, we know that $\varphi(g)\varphi(x)=\varphi(x)\varphi(g)$ since $\varphi$ is surjective, so define $h = \varphi(x)$ for each $h \in H$; so $\varphi(g)h = h \varphi(g)$ $\forall h \in H$ such that $\varphi(g) \in Z(H)$, hence $\varphi(Z(G)) \subseteq Z(H)$.\\
+
+    Now let $\varphi(g) \in Z(H)$ that is $\varphi(g)h = h\varphi(g)$, $\forall h \in H$. Since $\varphi$ is surjective, define $h=\varphi(x)$ for each $h \in H$, then  $\varphi(g)\varphi(x) = \varphi(x)\varphi(g)$ for every $\varphi(x) \in H$, hence $\varphi(g) \in \varphi(Z(G))$ given that $\varphi(gx) = \varphi(xg)$ since $\varphi$ has an inverse, then $\varphi^{-1}(\varphi(gx))=\varphi^{-1}(\varphi(xg))$ hence $gx = xg$ for every $x\in G$ so $g \in Z(G)$. Thus $Z(H) \subseteq \varphi(Z(G))$.\\
+
+    By the double inclusion, we then conclude that $\varphi(Z(G)) = Z(H)$.
+    \end{proof}
+\end{exer}
+
+\end{assignment}

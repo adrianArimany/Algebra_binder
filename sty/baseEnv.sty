@@ -1,0 +1,27 @@
+\ProvidesPackage{sty/baseEnv}
+
+%Packages only meant for Document Enviroment.
+
+
+%--------------------------------------------------%
+% Load sub-environments
+% \RequirePackage{sty/docEnv/envAutoEnv}
+\RequirePackage{sty/docEnv/envAxiom}
+\RequirePackage{sty/docEnv/envDefinition}
+\RequirePackage{sty/docEnv/envExercise}
+\RequirePackage{sty/docEnv/envFigures}
+\RequirePackage{sty/docEnv/envLemma}
+\RequirePackage{sty/docEnv/envNotation}
+\RequirePackage{sty/docEnv/envProposition}
+\RequirePackage{sty/docEnv/envSketch} % <- Proof Sketches.
+\RequirePackage{sty/docEnv/envTheorem}
+\RequirePackage{sty/docEnv/envCorollary}
+
+
+
+%This is you don't want the compiler to load the demostracion enviroment
+\RequirePackage{sty/docEnv/envProof}
+\CompileDemostracionOff
+
+%These enviroment only used for proofs
+

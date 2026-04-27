@@ -1,0 +1,55 @@
+% design/body/BodyB.tex
+\makeatletter
+
+\@ifundefined{BodyBshift}{%
+  \newlength{\BodyBshift}%
+  \setlength{\BodyBshift}{2.5cm}%
+}{
+  \setlength{\BodyBshift}{2.5cm}%
+}%
+
+\@ifundefined{useBodyBbegin}{%
+  \newcommand{\useBodyBbegin}{%
+    \begingroup
+    \reversemarginpar
+    \setlength{\marginparwidth}{3.2cm}%
+    \setlength{\marginparsep}{0.35cm}%
+    \begin{adjustwidth}{\BodyBshift}{-\BodyBshift}%
+  }%
+}{}%
+
+\@ifundefined{useBodyBend}{%
+  \newcommand{\useBodyBend}{%
+    \end{adjustwidth}%
+    \endgroup
+  }%
+}{}%
+
+% \makeatother
+
+
+% %Alternative setup (in case the above causes issues or redudancies):
+
+% \makeatletter
+% \providecommand{\asgn@body@begin}{}%
+% \providecommand{\asgn@body@end}{}%
+
+% \gdef\asgn@body@begin{%
+%   \begingroup
+%   \reversemarginpar
+%   \setlength{\marginparwidth}{3.2cm}%
+%   \setlength{\marginparsep}{0.35cm}%
+%   \begin{adjustwidth}{\BodyBshift}{-\BodyBshift}%
+% }
+% \gdef\asgn@body@end{%
+%   \end{adjustwidth}%
+%   \endgroup
+% }
+% \makeatother
+%
+
+%Then In the class just after: \input{design/body/\asgn@body.tex}
+% \asgn@body@begin
+% ...
+% \asgn@body@end 
+%  this should be placed where body ends.

@@ -1,0 +1,110 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Guia de Projecto},
+  duedate={\today},
+  toc=false,
+  toctitle={},
+  exlist=false
+]
+
+
+\section*{Tema de Seminario}
+Introduction to Matrix Lie Groups with emphasize on the construction of the Torus and the exponential map. Where the primary source material is \textcite{hall2015lie}. Moreover, this seminar has as a secondary intention to connect to a project in mechanical physics regarding a double pendulum (a chaotic system) which has the Torus has the configuration space, hence why I am putting a particular attention to the Torus.
+
+\section*{Limitations placed on Lie Groups}
+
+As anticipated, Lie Theory is a post-graduate academic discipline that at my current undergraduate level I don't have all the pre-requisites required to delve formally and rigorously in this theory. That is why there are a few constraint that I am going to establish to keep this seminar as simple as possible.
+\begin{enumerate}
+    \item This seminar will only focus on Matrix Lie Groups, and avoid entirely Lie groups.
+    \item When going over Lie Algebra, any results or examples are going to be only using the Tori $(\mathfrak{t})$.
+    \item We are not changing the usual topology when talking about continuity. Because we are keeping only Matrix Lie Groups, every object is a subset of $M_n(\mathbb{C})$  which as one might know $\mathbb{C}^{n^2} \cong \mathbb{R}^{2n^2}$, essentially resulting in that the topology is the usual topology that one studies in real analysis, only that because we are working on a higher dimension we induce the Frobenius norm, which for practical purposes it is the same norm that one studies in multi-variable real analysis.
+    \item Another detail to discuss from constraint $(3)$ is that because Compact sets play a role in Lie Groups, because we are using the usual topology on $\mathbb{R}$ we can use Heine-Borel equivalence.
+    \item Another detail to discuss about constraint $(3)$ is that Connected sets play a role in Lie groups. But most of the theory is based on Path-Connected rather than Topological Connected. But in $\mathbb{T}^n$ Path-connected is equivalent to Topological Connected, however is most likely that we are going to be using Path-Connected because it is more often used in Lie theory.
+    \item As one might suspect, the Complex Field plays a role in Lie Theory but for this seminar Complex analysis should play a very insignificant role, and my peers should comprehend some results based on what they will learn in the last part of Partial Differential Equations.
+    \item Lastly, I am going to assume my peers understand Linear Algebra (second semester) and Real Analysis (first semester), and any complicated results should be reemphasize to ensure that everything makes sense.
+\end{enumerate}
+    
+
+
+
+
+\section*{General Topics:}
+
+This is a overview of the sections I will cover form the book. As my seminar proceeds is likely that not all the sections will be cover in full detail, or that more material is added from the exercises to have a complete seminar on the Torus.
+
+\newpage
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{@{} p{0.55cm} p{7.2cm} R @{}}
+\toprule
+\textbf{\S} & \textbf{Topic} & \textbf{Hall Reference} \\
+\midrule
+ 
+1.1 & Definition of a matrix Lie group:
+      closed subgroups of $GL(n,\mathbb{C})$
+      & Hall \S1.1, pp.\,3--5 \\[4pt]
+ 
+1.2 & Key examples: $GL(n,\mathbb{R})$, $SL(n,\mathbb{R})$,
+      $O(n)$, $U(n)$, $SU(n)$
+      & Hall \S1.2, pp.\,5--16 \\[4pt]
+ 
+1.3 & Topological properties: compactness and connectedness
+      & Hall \S1.3, pp.\,16--21 \\[4pt]
+ 
+1.4 & Lie group homomorphisms
+      & Hall \S1.4, pp.\,21--25 \\[6pt]
+ 
+\midrule
+ 
+2.1 & The matrix exponential:
+      $e^{X}=\sum_{k=0}^{\infty}X^{k}/k!$
+      & Hall \S2.1, pp.\,31--33 \\[4pt]
+ 
+2.2 & Computing the exponential
+      & Hall \S2.2, pp.\,34--35 \\[4pt]
+ 
+2.3 & The matrix logarithm
+      & Hall \S2.3, pp.\,36--39 \\[4pt]
+ 
+2.4 & Further properties of the exponential
+      & Hall \S2.4, pp.\,40--42 \\[6pt]
+ 
+\midrule
+ 
+3.1 & Lie algebra definitions and first examples
+      & Hall \S3.1, pp.\,49--52 \\[4pt]
+ 
+3.7 & The exponential map (Def.\,3.40, Thm.\,3.42, Lem.\,3.43);
+      surjectivity for connected commutative $G$ (exercise)
+      & Hall \S3.7, pp.\,67--70 \\[6pt]
+ 
+\midrule
+
+11.1 & Tori; $\mathbb{T}^{n}$ as a matrix Lie group
+       & Hall \S11.1, pp.\,310--313 \\[4pt]
+ 
+11.2 & Maximal tori and the Weyl group
+       & Hall \S11.2, pp.\,314--316 \\[6pt]
+ 
+\midrule
+ 
+--- & \textbf{Synthesis:}
+      define $\mathfrak{t}^{n}=i\mathbb{R}^{n}$;
+      restrict $\exp$ to $\mathfrak{t}^{n}\to\mathbb{T}^{n}$;
+      compute kernel $2\pi i\,\mathbb{Z}^{n}$;
+      obtain $\mathbb{T}^{n}\cong\mathbb{R}^{n}/\mathbb{Z}^{n}$
+      by the first isomorphism theorem
+      & Def.\,3.40; exercise after \S3.7;
+        \S11.1; first isom.\ thm. \\[4pt]
+ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+The order presented above is a more or less on how the final presentation is going proceed. Though please keep in mind that the order can change depending on the material cover and the time constraint. If additional sources are needed for group theory like simple groups, I can also consult \textcite{silverman2022abstract}. And about topological results: \textcite{lopez2014point}. In regards to linear algebra \textcite{axler2024linear}. Finally the Large Language model that I am employing to assist me with comprehension is \textcite{claude2025}.  
+
+
+\end{assignment}

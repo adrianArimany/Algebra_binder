@@ -1,0 +1,28 @@
+\ProvidesPackage{sty/docEnv/envDefinition}
+
+
+% Counter for definitions (global, not per-section)
+\newtheorem{defn}{Definicion}
+
+% helper: prints the optional name in parentheses if provided
+\newcommand{\mdef@printname}[1]{%
+  \ifdefstrequal{#1}{}{}{ (\textit{#1})}%
+}
+
+% User environment (can't be called "def", so use "mdef" or similar)
+% Optional argument = custom label. If omitted, auto-label as def:<number>.
+% Environment: \begin{mdef}[refname][label]{Title} ... \end{mdef}
+\NewDocumentEnvironment{mdef}{O{} o m}
+  {%
+    \refstepcounter{defn}%
+    % Label handling
+    \IfNoValueTF{#2}{\label{def:\thedefn}}{\label{#2}}%
+    % Header line
+    \par\noindent
+    \textbf{Definición \thedefn}%
+    \ifstrempty{#1}{}{ (\textit{#1})}%
+    \textbf{: #3}%
+    \par\noindent
+  }
+  {\par}
+

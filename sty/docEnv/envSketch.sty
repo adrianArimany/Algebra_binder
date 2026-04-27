@@ -1,0 +1,32 @@
+\ProvidesPackage{sty/docEnv/envSketch}
+
+
+\newtcolorbox{proofsketch}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=green!70!black,
+  boxrule=0.4pt,
+  sharp corners,
+  title={\textbf{Proof Sketch}},
+  fonttitle=\normalsize\bfseries\color{black},
+  attach boxed title to top left={yshift=-2mm,xshift=2mm},
+  boxed title style={
+    colback=white,
+    colframe=green!70!black,
+    boxrule=0.4pt,
+    sharp corners,
+  },
+  before skip=10pt,
+  after skip=10pt,
+  % --- ADD THE SQUARE HERE ---
+  overlay={
+    \node[
+      fill=green!70!black, % Fill color for the square
+      minimum size=4pt,    % Size of the square
+      anchor=south west    % Anchor the node at its bottom-left corner
+    ] at (frame.south east) {}; % Position it at the bottom-right corner of the frame
+  }
+  % ---------------------------
+
+}

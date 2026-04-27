@@ -1,0 +1,70 @@
+\ProvidesPackage{sty/docEnv/envCorollary}
+
+\makeatletter
+
+% Counter
+\newtheorem{cor}{Corollary}
+
+% Name printer
+\newcommand{\mcor@printname}[1]{%
+  \if\relax\detokenize{#1}\relax
+  \else\ (\textit{#1})%
+  \fi
+}
+% Environment
+\NewDocumentEnvironment{mcorollary}{O{} O{} o}
+{%
+  % #1 = manual number
+  % #2 = name
+  % #3 = label
+
+  \par\noindent
+  \IfValueTF{#1}
+    {%
+      % Manual number → no counter step
+      \def\mcor@number{#1}%
+    }
+    {%
+      % Automatic numbering
+      \refstepcounter{cor}%
+      \def\mcor@number{\thecor}%
+    }%
+
+  % Label handling
+  \IfNoValueTF{#3}
+    {\label{cor:\mcor@number}}
+    {\label{#3}}%
+
+  {\textbf{Corollary} \mcor@number\mcor@printname{#2}.}\par\noindent
+}
+{\par}
+
+\makeatother
+
+% \begin{mcorollary}[B.2][Important Case][cor:important]
+% Text.
+% \end{mcorollary}
+
+
+% \makeatletter
+% % 1. Define the counter and base name
+% \newtheorem{cor}{Corollary}
+
+% % 2. Reuse or define the name printing command
+% % If you already have \mthm@printname defined, you don't need this next line
+% \newcommand{\mcor@printname}[1]{\ifdefstrequal{#1}{}{}{ (\textit{#1})}}
+
+% % 3. Define the Environment
+% \NewDocumentEnvironment{mcorollary}{O{} o}
+%   {%
+%     \refstepcounter{cor}%
+%     \IfNoValueTF{#2}{\label{cor:\thecor}}{\label{#2}}%
+%     \par\noindent{\textbf{Corollary} \thecor\mcor@printname{#1}.}\par\noindent
+%   }
+%   {\par}
+% \makeatother
+
+
+% \begin{mcorollary}[][cor:result1]
+% Final result text.
+% \end{mcorollary}

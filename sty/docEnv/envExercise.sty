@@ -1,0 +1,47 @@
+% sty/docEnv/envExercise.sty
+\ProvidesPackage{sty/docEnv/envExercise}
+
+\makeatletter
+
+% Counter
+\newcounter{ejercicio}
+
+% This macro will contain the clickable list (rebuilt from .aux)
+\gdef\ExerciseHeaderList{}
+
+% Called from .aux to append one entry
+\newcommand{\ex@add}[2]{%
+  \g@addto@macro\ExerciseHeaderList{%
+    \hyperlink{ex:#1}{\textsuperscript{#1}}%
+    \if\relax\detokenize{#2}\relax\else{\scriptsize(#2)}\fi
+    \hspace{0.6em}%
+  }%
+}
+
+% Write entry to .aux (so next run has full list from page 1)
+\newcommand{\ex@writeaux}[2]{%
+  \protected@write\@auxout{}{%
+    \string\ex@add{#1}{#2}%
+  }%
+}
+
+% Reset per-assignment
+\newcommand{\ResetEjercicios}{%
+  \setcounter{ejercicio}{0}%
+  \gdef\ExerciseHeaderList{}%
+}
+
+% Environment:
+% \begin{exer}[<short name>] ... \end{exer}
+\NewDocumentEnvironment{exer}{O{}}{%
+  \refstepcounter{ejercicio}%
+  \hypertarget{ex:\theejercicio}{}%
+  \ex@writeaux{\theejercicio}{#1}%
+  \par\noindent\textbf{Ex \theejercicio.}%
+  \if\relax\detokenize{#1}\relax\else\ \textit{#1}\fi
+  \par\smallskip
+}{%
+  \par\vspace{1em}%
+}
+
+\makeatother

@@ -1,0 +1,287 @@
+\begin{assignment}[
+  header=HeaderA,
+  body=BodyA,
+  title={Proved Theorems in  Group Theory},
+  duedate={\today},
+  toc=false,
+  toctitle={This appears on the Table of contents.},
+  exlist=false
+]
+
+% \newcommand{\Aut}[1]{\ensuremath{\mathrm{Aut}(#1)}}
+% \newcommand{\Inn}[1]{\ensuremath{\mathrm{Inn}(#1)}}
+% \newcommand{\Ord}[2]{\ensuremath{\mathrm{ord}(#1)=#2}}
+% \newcommand{\ord}[1]{\ensuremath{\mathrm{ord}(#1)}}
+% \newcommand{\Gen}[1]{\ensuremath{\langle #1 \rangle}}
+
+
+% \begin{mtheorem}[][thm:]
+% Let $G$ be a finite Cyclic group of order $n$, and let $g$ be a generator of $G$, then $g^k$ is a generator of G iff gcd$(k,n) = 1$.
+% \end{mtheorem}
+
+\begin{mtheorem}[One Step Criteria][][thm:OneStep]
+A non-empty subset $H \leq G$ is a subgroup of $G$ $\iff$ $H \neq \emptyset$ and $ (\forall x,y \in H)$$(xy^{-1} \in H)$
+\end{mtheorem}
+
+\begin{mtheorem}[Two step Criteria][][thm:TwoStep]
+Let $H \neq \emptyset$ a subset from the group $G$. If $H$ is closed under the operation from $G$, and $H$ is closed under inverses, then $H$ is a subgroup of $G$.
+\end{mtheorem}
+
+
+
+\begin{mtheorem}[5][][thm:5]
+The set of $G$ of symmetries for a regular polygon $P$ for $n$ sides forms a group with the composition of function.
+\end{mtheorem}
+
+\begin{mtheorem}[ 6][][thm:6]
+Let $(G, \circ)$ is a group of symmetries for a regular polygon $P$ with $n$-sides, then $\# G = 2n$.
+\end{mtheorem}
+
+\begin{mtheorem}[ 9][][thm:9]
+Let $G$ be a group and $a \in G$. 
+\begin{enumerate}
+    \item[*] If $a$ has finite order, then $a^i = a^j \iff i = j$
+    \item[**] If \Ord{a}{n} $\in \mathbb{Z}^+$ then \Gen{a}$=\{e,a,a^2,\cdots, a^{n-1}\}$ and $a^i = a^j \iff n \mid (i-j)$
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mcorollary}[9][][cor:9]
+Let $G$ be a group
+\begin{enumerate}
+    \item[i] Given $a \in G$ then \ord{a} = \ord{\Gen{a}}
+    \item[ii] $a^k = e$ iff \ord{a} divides $k$.
+\end{enumerate}
+\end{mcorollary}
+
+\begin{mtheorem}[ 10][][thm:10]
+Let $a$ be an element of order $n$ and $k \in \mathbb{Z}^+$ then 
+\begin{enumerate}
+    \item[i] \Gen{a^k} $=$ \Gen{a^{gcd(n,k)}}
+    \item[ii] \ord{a^k} $=$ $\frac{n}{gcd(n,k}$
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mcorollary}[10][][cor:10]
+Let \Ord{a}{n} then \Gen{a} $=$ \Gen{a^k} $\iff$ gcd$(n,k) = 1$ 
+\end{mcorollary}
+
+\begin{mtheorem}[11][Fundamental  of Cyclic Groups][thm:11]
+Let $G =$\Gen{x} of order n.
+\begin{enumerate}
+    \item[i] Every subgroup of $G$ is cyclic
+    \item[ii] If $\#G = n$ then any order for a subgroup of $G$ divides $n$.
+    \item[iii] For every positive divisor $k$ of $n$. then $G$ has exactly one subgroup of order $k$.
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mtheorem}[12][][thm:12]
+Let $S \neq \emptyset$ then $(A(S), \circ)$ is a group.
+\end{mtheorem}
+
+\begin{mtheorem}[14][][thm:14]
+Every permutation is either a cyclic or a disjointed union of cycles.
+\end{mtheorem}
+
+\begin{mtheorem}[15][][thm:15]
+If $\sigma = \begin{pmatrix} a_1 & a_2 & \cdots & a_m \end{pmatrix}$ and $\tau = \begin{pmatrix} b_1 & b_2 & \cdots & b_n \end{pmatrix}$ disjointed cycles, then $\sigma\tau = \tau\sigma$.
+\end{mtheorem}
+
+\begin{mtheorem}[16][][thm:16]
+Let $m \in \mathbb{Z}^+$ then the order of $m-$cycles is $m$ (i.e. $\#m-$cycle $= m$).
+\end{mtheorem}
+
+\begin{mtheorem}[17][][thm:17]
+The order of a permutation of a finite set, written as disjointed cycles is expressed with the minimum common multiple from the length of each cycle.
+\end{mtheorem}
+
+\begin{mtheorem}[18][][thm:18]
+Every permutation in $S_n$ is a product of transpositions.
+\end{mtheorem}
+
+\begin{mtheorem}[20][][thm:20]
+If a permutation of $\alpha$ can be expressed as a product formed by even (xor odd) cycles, then every decomposition for $\alpha$ as a product of transpositions must have a even (xor odd) number of transpositions.
+\end{mtheorem}
+
+\begin{mtheorem}[21][][thm:21]
+The set of even permutations $A_n$ is subgroup of $S_n$.
+\end{mtheorem}
+
+\begin{mtheorem}[22][][thm:22]
+For every $n > 1$ then $\#A = \frac{n!}{2}$.
+\end{mtheorem}
+
+\begin{mtheorem}[23][][thm:23]
+\begin{enumerate}
+    \item[a)] Every infinite cycle is isomorphic to $\mathbb{Z}$
+    \item[b)] Every finite cycle is isomorphic to $\mathbb{Z}_n$
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mtheorem}[24][Acting over elements in Groups][thm:24]
+Let $\varphi: G, H$ isomorphic then,
+\begin{enumerate}
+    \item[a)] $\varphi(e_G) = e_H$
+    \item[b)] Let $a \in G$, $\varphi(a^n) = [\varphi(a)]^n$ for every $n \in \mathbb{Z}$.
+    \item[c)] Let $a,b \in G$, $a$ and $b$ commute $\iff$ $\varphi(a)$ and $\varphi(b)$ commute.
+    \item[d)] $G = \Gen{a} \iff H = \Gen{\varphi(a)}$
+    \item[e)] Given $a\in G$, \ord{a} $=$ \ord{\varphi(a)}
+    \item[f)] For a $k \in \mathbb{Z}$ fixed and a element $b \in G$ fixed, the number of solutions for the equation $x^k = b$ in $G$ has the same number of solutions in $x^k = \varphi(b)$ in $H$.
+    \item[g)] If $G,H$ are finite then $G$ and $H$ have the same number of elements for every order.
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mtheorem}[25][][thm:25]
+Let $\varphi: G\to H$ is isomorphic then
+\begin{enumerate}
+    \item[a)] $\varphi^{-1}$ is isomorphic in $H$ to $G$.
+    \item[b)] $G$ is abelian $\iff$ $H$ is abelian.
+    \item[c)] $G$ is cyclic $\iff$ $H$ is cyclic.
+    \item[d)] If $K \leq G$ then $\varphi[K] \leq H$. 
+    \item[e)] If $J \leq H$ then $\varphi^{-1}[j] \leq G$.
+    \item[f)] $\varphi[Z(G)] = Z(H)$
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mtheorem}[26][][thm:26]
+Let $G$ be a group with \Aut{G} and \Inn{G} are groups with the composition.
+\end{mtheorem}
+
+\begin{mtheorem}[27][][thm:27]
+Let $n \in \mathbb{Z}^+$ then \Aut{Z_n} $\cong$ $U(n)$ 
+\end{mtheorem}
+
+\begin{mtheorem}[28][][thm:28]
+Every finite group is isomorphic to a subgroup of permutations.
+\end{mtheorem}
+
+\begin{mtheorem}[29][][thm:29]
+Let $G$ be a group, $H \leq G$ with $a,b \in G$. Then
+\begin{enumerate}
+    \item[a)] $a \in aH$
+    \item[b)] $aH = H$ $\iff$ $a \in H$
+    \item[c)] $(ab)H = a(bH)$
+    \item[d)] $aH=bH$ $\iff$ $a \in bH$ $\iff$ $a^{-1}b \in H$
+    \item[e)] $aH = bH$ xor $aH \cap bH = \emptyset$
+    \item[f)] $|aH| =_c |bH|$
+    \item[g)] $aH = Ha$ $\iff$ $H = aHa^{-1}$
+\end{enumerate}
+\end{mtheorem}
+
+\begin{mtheorem}[30][Lagrange][thm:30]
+Let $G$ be a finite group and $H \leq G$ then $\#H \mid \#G$.
+\end{mtheorem}
+
+\begin{mcorollary}[30][][cor:30]
+Let $G$ be a finite group and $H \leq G$ then
+\begin{enumerate}
+    \item[i)] $[G:H] = \frac{\#G}{\#H}$
+    \item[ii)] If $a \in G$ then $\#G\mid \ord(a)$
+    \item[iii)] Every group $G$, with $p$ a prime, if $\#G = p$ then  $G$ is cyclic.
+    \item[iv)] If $a \in G$ then $a^{\#G} = e$
+    \item[v)] For every integer $a$ and every prime $p$, we have that $a^p \equiv a$ ($mod\ p)$.
+\end{enumerate}
+\end{mcorollary}
+
+\begin{mtheorem}[31][][thm:31]
+Let $H$ and $K$ are finite subgroups of some group and $HK = \{hk \ : \ h \in H, k \in K\}$ then 
+\[
+\# HK =_c \frac{\# H \cdot \# K}{\#(H\cap K)}
+\]
+\end{mtheorem}
+
+\begin{mtheorem}[32][][thm:32]
+Let $G$ be a group with order $2p$ where $p > 2$ is prime, then $G$ is isomorphic to $\mathbb{Z}_{2p}$ or $D_p$. 
+\end{mtheorem}
+
+%Review the notation for  33...
+\begin{mtheorem}[33][][thm:33]
+Let $(g_1, g_2, \cdots, g_n)$ an element of an external direct product with $n$ groups. Then 
+\[
+|(g_1, g_2, \cdots, g_n)| =_c \text{lcm}(\#g_1,\cdots, \# g_n)
+\]
+\end{mtheorem}
+
+\begin{mtheorem}[34][][thm:34]
+Let $H,G$ finite cyclic groups, then $G \oplus H$ is cyclic iff $\# G$  and $\# H$ are co primes.  
+\end{mtheorem}
+
+\begin{mtheorem}[35][][thm:35]
+If gcd$(s,t) = 1$ then $U(st) \cong U(s) \oplus U(t)$
+\end{mtheorem}
+
+\begin{mcorollary}[35a][][cor:35a]
+Let $m = n_1 n_2\cdots n_k$ with $n_i$ and $n_j$ relative primes where $i \neq j$, then $U(m) \cong U(n_1) \oplus U(n_2) \oplus \cdots \oplus U(n_k)$
+\end{mcorollary}
+
+\begin{mcorollary}[35b][][cor:35b]
+The following unit groups are isomorphic:
+\begin{enumerate}
+    \item[i)] $U(2) \cong \{0\}$
+    \item[ii)] $U(4) \cong \mathbb{Z}_2$
+    \item[iii)] $U(2^n) \cong \mathbb{Z}_{2^{n-2}} \oplus \mathbb{Z}_2$ for $n \geq 3$
+    \item[iv)] $U(p^n) \cong \mathbb{Z}_{p^n - p^{n-1}}$ for $p \geq 3$ prime.  
+\end{enumerate}
+\end{mcorollary}
+
+
+\begin{mtheorem}[36][Normal Subgroup Test][thm:36]
+Let $H$ a subgroup of $G$. $H \lhd G \iff gHg^{-1} \subseteq H$, $\forall g \in G$.
+\end{mtheorem}
+
+\begin{mtheorem}[37][][thm:37]
+Let $H$ a subgroup of $G$. $H \lhd G \iff N_G(H) = G$.
+\end{mtheorem}
+
+\begin{mtheorem}[38][][thm:38]
+Let $H$ a subgroup of G. If $[G:H] = 2$ then $H \lhd G$.
+\end{mtheorem}
+
+% \begin{mtheorem}[ 39][][thm:39]
+% Let $G$ a group and $N \lhd G$. Then the set $G/N = \{gN \ : \ g \in G\}$ is a group with operation:
+% \[
+% (aN) \cdot (bN) = (ab)N
+% \]
+% \end{mtheorem}
+
+% \begin{mtheorem}[40][][thm:40]
+% Let $G$ be a group. If $G/Z(G)$ is cyclic then $G$ is abelian.
+% \end{mtheorem}
+
+% \begin{mtheorem}[41][][thm:41]
+% Let $G$ a group then $G/Z(G) \cong$ \Inn{G}. 
+% \end{mtheorem}
+
+% \begin{mtheorem}[43][Abelian Groups from Cauchy][thm:43]
+% Let $G$ a finite abelian group and $p$ a prime, where $p\mid \# G$ then $\exists g \in G$ s.t. \Ord{g}{p}.
+% \end{mtheorem}
+
+
+% \begin{mtheorem}[44][][thm:44]
+% If $G = H \times K$ then $G \cong H \oplus K$
+% \end{mtheorem}
+
+% \begin{mtheorem}[45][][thm:45]
+% If $G$ is abelian with order $pq$ where $p$ and $q$ are distinct primes, then $G$ is cyclic.
+% \end{mtheorem}
+
+% \begin{mtheorem}[ 46][][thm:46]
+% Every group of order $p^2$ where $p$ is prime is isomorphic to $\mathbb{Z}_{p^2}$ or $\mathbb{Z}_p \times \mathbb{Z}_p$ 
+% \end{mtheorem}
+
+
+% \begin{mtheorem}[][][thm:]
+
+% \end{mtheorem}
+
+% \begin{mtheorem}[][][thm:]
+
+% \end{mtheorem}
+
+
+
+% \begin{mtheorem}[][][thm:]
+
+%\end{mtheorem}
+
+
+\end{assignment}
